@@ -14,17 +14,14 @@ import { createTheme, ThemeProvider } from "@mui/material";
 const globalStyles = (
   <GlobalStyles
     styles={() => ({
-      html: {
-        margin: 0,
-        padding: 0,
-      },
       body: {
         margin: 0,
         padding: 0,
-        backgroundColor: "#F0F0F0",
+        backgroundColor: "#f9f9f9",
         color: "#2d2e32",
         fontFamily: "Raleway, sans-serif",
-        width: "100vw",
+        width: "100%",
+        height: "100%",
       },
     })}
   />

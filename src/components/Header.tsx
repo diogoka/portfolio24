@@ -18,15 +18,15 @@ function Header() {
   return (
     <Box
       sx={{
-        height: "10vh",
+        position: "fixed",
+        top: 0,
+        width: "100vw",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
         paddingTop: "1rem",
         paddingBottom: "1rem",
-        paddingLeft: "4.5rem",
-        paddingRight: "4.5rem",
-        backgroundColor: "#e8e8e8",
+        backgroundColor: "#fff",
         boxShadow: "1px 0.5px 10px rgba(0, 0, 0, 0.25)",
       }}
     >
@@ -41,6 +41,7 @@ function Header() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "row",
+            paddingLeft: "4.5rem",
           }}
           href={"#home"}
         >
@@ -59,6 +60,7 @@ function Header() {
           display: "flex",
           justifyContent: "space-between",
           width: "40%",
+          paddingRight: "4.5rem",
         }}
       >
         <Link sx={LinkStyle} href="#work">

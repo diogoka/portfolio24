@@ -1,5 +1,6 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link, Typography, keyframes } from "@mui/material";
 import { LinkedIn, GitHub } from "@mui/icons-material";
+import avatar from "../public/images/avatar.jpg";
 
 function Hero() {
   const TypographyStyle = {
@@ -20,18 +21,62 @@ function Hero() {
     marginRight: "2rem",
   };
 
+  const bubble = keyframes`
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(to right, yellow, purple, red, green, blue, black);
+  }
+
+  10% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
+    background: linear-gradient(to right, purple, red, green, blue, black, yellow);
+  }
+
+  30% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(to right, red, green, blue, black, yellow, purple);
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
+    background: linear-gradient(to right, green, blue, black, yellow, purple, red);
+  }
+
+  70% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(to right, blue, black, yellow, purple, red, green);
+  }
+
+  90% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
+    background: linear-gradient(to right, yellow, purple, red, green, blue, black);
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(to right, purple, red, green, blue, black, yellow);
+  }
+`;
+
   return (
     <Box
       sx={{
         height: "90vh",
-        paddingTop: "8.5rem",
-        paddingLeft: "22rem",
-        paddingRight: "22rem",
+        width: "100vw",
+        marginTop: "12.5rem",
+
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          marginLeft: "18rem",
+          marginRight: "18rem",
+          justifyContent: "space-evenly",
+        }}
+      >
         <Box>
           <Typography sx={{ fontSize: "4.2rem", fontWeight: "700" }}>
             Full-Stack Developer
@@ -81,25 +126,47 @@ function Hero() {
             </Box>
           </Box>
         </Box>
-        <Box>
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "21.875rem",
+            height: "21.875rem",
+            border: "2px solid transparent", // Change this line
+            background:
+              "linear-gradient(to right, yellow, purple, red, green, blue)", // Change this line
+            borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
+            animation: `${bubble} 15s ease-in-out infinite`,
+
+            overflow: "hidden",
+          }}
+        >
           <img
-            src="/images/avatar/avatar.jpg"
-            alt="diogo avatar"
+            src={avatar}
+            alt="diogoAvatar"
             loading="lazy"
+            style={{
+              width: "100%",
+              height: "auto",
+              paddingTop: "1.3rem",
+              border: "3px solid white",
+              borderRadius: "inherit",
+            }}
           />
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", marginTop: "8rem", width: "100%" }}>
-        <Typography sx={{ fontSize: "1.6rem", fontWeight: "600" }}>
+        <Typography sx={{ fontSize: "1.2rem", fontWeight: "600" }}>
           Tech Stack |
         </Typography>
 
         <Box
           sx={{
             display: "flex",
-            "& img": { width: "60px", height: "60px" },
-            flexWrap: "wrap",
+            "& img": { width: "50px", height: "50px" },
           }}
         >
           <Box sx={{ ...IconBox, marginLeft: "2rem" }}>
@@ -107,7 +174,6 @@ function Hero() {
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
           </Box>
           <Box sx={IconBox}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
           </Box>
