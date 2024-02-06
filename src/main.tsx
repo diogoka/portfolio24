@@ -23,6 +23,10 @@ const globalStyles = (
         width: "100%",
         height: "100%",
       },
+      ".menu-hover:hover": {
+        color: "#004F98",
+        cursor: "pointer",
+      },
     })}
   />
 );

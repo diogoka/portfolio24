@@ -1,13 +1,17 @@
-import { Box, Link, Typography, keyframes } from "@mui/material";
+import { Box, Link, Typography, keyframes, useTheme } from "@mui/material";
 import { LinkedIn, GitHub } from "@mui/icons-material";
 import avatar from "../public/images/avatar.jpg";
 
 function Hero() {
+  const theme = useTheme();
   const TypographyStyle = {
     color: "#555",
     fontWeight: "500",
     lineHeight: "2rem",
     fontSize: "1.2rem",
+    [theme.breakpoints.down("xl")]: {
+      fontSize: "1rem",
+    },
   };
 
   const IconsStyle = {
@@ -22,63 +26,50 @@ function Hero() {
   };
 
   const bubble = keyframes`
+    
   0% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    background: linear-gradient(to right, yellow, purple, red, green, blue, black);
-  }
-
-  10% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
-    background: linear-gradient(to right, purple, red, green, blue, black, yellow);
-  }
-
-  30% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    background: linear-gradient(to right, red, green, blue, black, yellow, purple);
   }
 
   50% {
+    border: "3px solid yellow";
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
-    background: linear-gradient(to right, green, blue, black, yellow, purple, red);
-  }
-
-  70% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    background: linear-gradient(to right, blue, black, yellow, purple, red, green);
-  }
-
-  90% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
-    background: linear-gradient(to right, yellow, purple, red, green, blue, black);
   }
 
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    background: linear-gradient(to right, purple, red, green, blue, black, yellow);
   }
-`;
+
+  `;
 
   return (
     <Box
       sx={{
-        height: "90vh",
-        width: "100vw",
-        marginTop: "12.5rem",
-
         display: "flex",
         flexDirection: "column",
+        justifyContent: "center",
+        height: "100vh",
+        marginLeft: "16rem",
+        marginRight: "16rem",
       }}
+      className="home"
     >
       <Box
         sx={{
           display: "flex",
-          marginLeft: "18rem",
-          marginRight: "18rem",
-          justifyContent: "space-evenly",
+          justifyContent: "space-between",
         }}
       >
         <Box>
-          <Typography sx={{ fontSize: "4.2rem", fontWeight: "700" }}>
+          <Typography
+            sx={{
+              fontSize: "4.2rem",
+              fontWeight: "700",
+              [theme.breakpoints.down("xl")]: {
+                fontSize: "2.7rem",
+              },
+            }}
+          >
             Full-Stack Developer
           </Typography>
           <Box sx={{ paddingLeft: "0.3rem", paddingTop: "1rem" }}>
@@ -91,7 +82,7 @@ function Hero() {
               sx={{
                 display: "flex",
                 paddingLeft: "1.2rem",
-                paddingTop: "1rem",
+                paddingTop: "1.8rem",
                 columnGap: "1rem",
               }}
             >
@@ -128,45 +119,53 @@ function Hero() {
         </Box>
         <Box
           sx={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             width: "21.875rem",
             height: "21.875rem",
-            border: "2px solid transparent", // Change this line
-            background:
-              "linear-gradient(to right, yellow, purple, red, green, blue)", // Change this line
+            [theme.breakpoints.down("xl")]: {
+              width: "15rem",
+              height: "15rem",
+            },
+            border: "2px solid #004F98",
             borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
-            animation: `${bubble} 15s ease-in-out infinite`,
-
-            overflow: "hidden",
+            animation: `${bubble} 10s ease-in-out infinite`,
+            backgroundImage: `url(${avatar})`,
+            backgroundPosition: "top",
+            backgroundSize: "cover",
           }}
-        >
-          <img
-            src={avatar}
-            alt="diogoAvatar"
-            loading="lazy"
-            style={{
-              width: "100%",
-              height: "auto",
-              paddingTop: "1.3rem",
-              border: "3px solid white",
-              borderRadius: "inherit",
-            }}
-          />
-        </Box>
+        ></Box>
       </Box>
 
-      <Box sx={{ display: "flex", marginTop: "8rem", width: "100%" }}>
-        <Typography sx={{ fontSize: "1.2rem", fontWeight: "600" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginTop: "5.5rem",
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: "1.2rem",
+            fontWeight: "600",
+            [theme.breakpoints.down("xl")]: {
+              fontSize: "1rem",
+            },
+          }}
+        >
           Tech Stack |
         </Typography>
 
         <Box
           sx={{
             display: "flex",
-            "& img": { width: "50px", height: "50px" },
+            maxWidth: "80vw",
+            "& img": {
+              width: "50px",
+              height: "50px",
+              [theme.breakpoints.down("xl")]: {
+                width: "35px",
+                height: "35px",
+              },
+            },
           }}
         >
           <Box sx={{ ...IconBox, marginLeft: "2rem" }}>
