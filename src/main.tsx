@@ -7,6 +7,7 @@ import "@fontsource/raleway/700.css";
 import "@fontsource/raleway/600.css";
 import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/600.css";
+import "@fontsource/raleway/500-italic.css";
 
 import { GlobalStyles } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material";
