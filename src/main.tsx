@@ -14,17 +14,21 @@ import { createTheme, ThemeProvider } from "@mui/material";
 const globalStyles = (
   <GlobalStyles
     styles={() => ({
-      body: {
+      root: {
+        fontSize: "16px",
+      },
+      "*": {
         margin: 0,
         padding: 0,
+        boxSizing: "border-box",
+      },
+      body: {
         backgroundColor: "#f9f9f9",
         color: "#2d2e32",
         fontFamily: "Raleway, sans-serif",
-        width: "100%",
-        height: "100%",
       },
       ".menu-hover:hover": {
-        color: "#004F98",
+        color: "#F58220",
         cursor: "pointer",
       },
     })}

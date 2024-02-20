@@ -1,17 +1,14 @@
-import { Box, Link, Typography, keyframes, useTheme } from "@mui/material";
+import { Box, Link, Typography, keyframes } from "@mui/material";
 import { LinkedIn, GitHub } from "@mui/icons-material";
 import avatar from "../public/images/avatar.jpg";
+import Skills from "./skills/Skills";
 
 function Hero() {
-  const theme = useTheme();
   const TypographyStyle = {
     color: "#555",
     fontWeight: "500",
     lineHeight: "2rem",
     fontSize: "1.2rem",
-    [theme.breakpoints.down("xl")]: {
-      fontSize: "1rem",
-    },
   };
 
   const IconsStyle = {
@@ -19,14 +16,7 @@ function Hero() {
     fontSize: "2rem",
   };
 
-  const IconBox = {
-    display: "flex",
-    columnGap: "0.2rem",
-    marginRight: "2rem",
-  };
-
   const bubble = keyframes`
-    
   0% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
@@ -39,7 +29,6 @@ function Hero() {
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
-
   `;
 
   return (
@@ -49,8 +38,8 @@ function Hero() {
         flexDirection: "column",
         justifyContent: "center",
         height: "100vh",
-        marginLeft: "16rem",
-        marginRight: "16rem",
+        paddingLeft: "16rem",
+        paddingRight: "16rem",
       }}
       className="home"
     >
@@ -63,11 +52,8 @@ function Hero() {
         <Box>
           <Typography
             sx={{
-              fontSize: "4.2rem",
+              fontSize: "60px",
               fontWeight: "700",
-              [theme.breakpoints.down("xl")]: {
-                fontSize: "2.7rem",
-              },
             }}
           >
             Full-Stack Developer
@@ -83,7 +69,7 @@ function Hero() {
                 display: "flex",
                 paddingLeft: "1.2rem",
                 paddingTop: "1.8rem",
-                columnGap: "1rem",
+                gap: "1rem",
               }}
             >
               <Link
@@ -119,79 +105,49 @@ function Hero() {
         </Box>
         <Box
           sx={{
-            width: "21.875rem",
-            height: "21.875rem",
-            [theme.breakpoints.down("xl")]: {
-              width: "15rem",
-              height: "15rem",
-            },
-            border: "2px solid #004F98",
+            width: "266px",
+            height: "346px",
+            minHeight: "346px",
+            minWidth: "266px",
+            border: "2px solid #F58220",
             borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
             animation: `${bubble} 10s ease-in-out infinite`,
-            backgroundImage: `url(${avatar})`,
             backgroundPosition: "top",
             backgroundSize: "cover",
+            position: "relative",
+            overflow: "hidden",
           }}
-        ></Box>
+        >
+          <img
+            src={avatar}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+            }}
+          />
+        </Box>
       </Box>
 
       <Box
         sx={{
           display: "flex",
           justifyContent: "flex-start",
-          marginTop: "5.5rem",
+          paddingTop: "80px",
+          gap: "20px",
         }}
       >
         <Typography
           sx={{
             fontSize: "1.2rem",
             fontWeight: "600",
-            [theme.breakpoints.down("xl")]: {
-              fontSize: "1rem",
-            },
+            minWidth: "110px",
           }}
         >
           Tech Stack |
         </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            maxWidth: "80vw",
-            "& img": {
-              width: "50px",
-              height: "50px",
-              [theme.breakpoints.down("xl")]: {
-                width: "35px",
-                height: "35px",
-              },
-            },
-          }}
-        >
-          <Box sx={{ ...IconBox, marginLeft: "2rem" }}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-          </Box>
-          <Box sx={IconBox}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
-          </Box>
-          <Box sx={IconBox}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-          </Box>
-          <Box sx={IconBox}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg" />
-          </Box>
-          <Box sx={{ ...IconBox, marginRight: 0 }}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
-          </Box>
-        </Box>
+        <Skills />
       </Box>
     </Box>
   );

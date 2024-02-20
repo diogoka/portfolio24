@@ -7,6 +7,7 @@ export default function Projects() {
     fontSize: "2rem",
     fontWeight: "700",
   };
+
   return (
     <Box
       sx={{
@@ -21,27 +22,34 @@ export default function Projects() {
     >
       <Typography sx={TypographyStyle}>Projects</Typography>
 
-      <Stack>
-        <Paper
-          elevation={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "30rem",
-            height: "20rem",
-            margin: "1rem",
-          }}
-        >
-          <img
-            src={Eventllege}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </Paper>
-        <Box>
-          <Typography>Eventllege</Typography>
-          <Typography>Project Description</Typography>
+      <Stack sx={{ width: "100%" }}>
+        <Box sx={{ display: "flex" }}>
+          <Paper
+            elevation={3}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "30rem",
+              height: "20rem",
+              margin: "1rem",
+            }}
+          >
+            <img
+              src={Eventllege}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </Paper>
+          <Box>
+            <Typography>Name: Eventllege</Typography>
+            <Typography>"Description</Typography>
+            <Box sx={{ display: "flex" }}>
+              <Typography>Github</Typography>
+              <Typography>Demo</Typography>
+            </Box>
+            <Typography>Tech Stack:</Typography>
+          </Box>
         </Box>
       </Stack>
     </Box>

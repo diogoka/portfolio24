@@ -1,5 +1,4 @@
-import { Box, Typography } from "@mui/material";
-import FileDownload from "@mui/icons-material/FileDownload";
+import { Box, Typography, Container } from "@mui/material";
 import { Link as ScrollLink } from "react-scroll";
 
 function Header() {
@@ -9,21 +8,22 @@ function Header() {
     fontWeight: "700",
   };
 
+  const ContainerStyle = {
+    position: "fixed",
+    top: 0,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+    backgroundColor: "#fff",
+    boxShadow: "1px 0.5px 10px rgba(0, 0, 0, 0.25)",
+    minWidth: "100%",
+    zIndex: 90,
+  };
+
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: 0,
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
-        backgroundColor: "#fff",
-        boxShadow: "1px 0.5px 10px rgba(0, 0, 0, 0.25)",
-      }}
-    >
+    <Container sx={ContainerStyle}>
       <Box
         component={ScrollLink}
         to="home"
@@ -46,7 +46,7 @@ function Header() {
           dk
         </Typography>
         <Typography
-          sx={{ fontSize: "2.34rem", fontWeight: "bold", color: "#004F98" }}
+          sx={{ fontSize: "2.34rem", fontWeight: "bold", color: "#F58220" }}
         >
           a
         </Typography>
@@ -57,6 +57,7 @@ function Header() {
           display: "flex",
           justifyContent: "space-between",
           width: "40%",
+          minWidth: "460px",
           paddingRight: "4.5rem",
         }}
       >
@@ -126,11 +127,10 @@ function Header() {
             }}
           >
             Resume
-            <FileDownload></FileDownload>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Container>
   );
 }
 
