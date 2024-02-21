@@ -4,7 +4,14 @@ import EventllegeImgURL from "../../public/images/Eventllege.png";
 export const EventllegeProject: ProjectType = {
   name: "Eventllege",
   image: `${EventllegeImgURL}`,
-  techStack: "tech",
+  techStack: [
+    "nextjs",
+    "firebase",
+    "nodejs",
+    "materialui",
+    "postgresql",
+    "typescript",
+  ],
   description: `A platform created to manage college events in which enables event
           organizers to create and manage their events, generating reports on
           students who have attended. The students also can track the attended

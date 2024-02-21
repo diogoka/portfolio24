@@ -15,9 +15,8 @@ export default function Projects() {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        marginLeft: "16rem",
-        marginRight: "16rem",
-        marginTop: "5rem",
+        paddingLeft: "14.8%",
+        paddingRight: "14.8%",
         gap: "16px",
       }}
       className="projects"

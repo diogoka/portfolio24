@@ -1,18 +1,29 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography, Link } from "@mui/material";
 import { ProjectType } from "../../types/types";
+import GitHubImage from "../../public/images/githubIconblue.png";
+import DemoImage from "../../public/images/demonstrationIcon.png";
 
 type Props = {
   project: ProjectType;
 };
 
-export default function Project(project: Props) {
-  const ProjectDescriptionStyle = {
+export default function Project({ project }: Props) {
+  const ProjectContainerStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+  };
+
+  const ProjectDescriptionContainerStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
     flexGrow: "1",
     margin: "16px",
     maxWidth: "50%",
+    minWidth: "432px",
+    minHeight: "278px",
+    gap: "7px",
   };
 
   const ProjectNameStyle = {
@@ -22,35 +33,61 @@ export default function Project(project: Props) {
   };
 
   const ProjectImageStyle = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     minWidth: "394px",
     minHeight: "267.19px",
+    maxWidth: "394px",
+    maxHeight: "267.19px",
     margin: "1rem",
-    backgroundImage: `url(${project.project.image})`,
+    backgroundImage: `url(${project.image})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
+  const ProjectDescriptionStyle = {
+    textAlign: "justify",
+    textJustify: "inter-word",
+  };
+
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box sx={ProjectContainerStyle}>
       <Paper elevation={3} sx={ProjectImageStyle} />
-      <Box sx={ProjectDescriptionStyle}>
-        <Typography sx={ProjectNameStyle}>{project.project.name}</Typography>
-        <Typography>
-          A platform created to manage college events in which enables event
-          organizers to create and manage their events, generating reports on
-          students who have attended. The students also can track the attended
-          events and make reviews to help the others students.
+      <Box sx={ProjectDescriptionContainerStyle}>
+        <Typography sx={ProjectNameStyle}>{project.name}</Typography>
+        <Typography sx={ProjectDescriptionStyle}>
+          {project.description}
         </Typography>
-        <Box>
-          <Typography>Tech Stack:</Typography>
-        </Box>
+
         <Box sx={{ display: "flex" }}>
           <Box>
-            <Typography>Github</Typography>
-            <Typography>Demo</Typography>
+            <Typography> Tech Stack:</Typography>
+          </Box>
+          <Box>
+            <Typography>Frontend: NextJS, TypeScript, Material UI </Typography>
+            <Typography>
+              Backend: NodeJS, TypeScript, Firebase, PostgreSQL
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+            gap: "60px",
+          }}
+        >
+          <Box sx={{ width: "55px" }}>
+            {/* need to use the property coming from props. */}
+            <Link href={"https://github.com/"} target="_blank">
+              <img src={GitHubImage} style={{ width: "100%" }} />
+            </Link>
+          </Box>
+          <Box sx={{ width: "55px" }}>
+            {/* need to use the property coming from props. */}
+            <Link href={"https://github.com/"} target="_blank">
+              <img src={DemoImage} style={{ width: "100%" }} />
+            </Link>
           </Box>
         </Box>
       </Box>

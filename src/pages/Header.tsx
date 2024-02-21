@@ -15,7 +15,7 @@ function Header() {
     boxShadow: "1px 0.5px 10px rgba(0, 0, 0, 0.25)",
     minWidth: "100%",
     zIndex: 90,
-    marginBottom: "64px",
+    marginBottom: "136px",
   };
 
   return (
