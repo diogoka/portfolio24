@@ -1,7 +1,7 @@
 export type ProjectType = {
   name: string;
   image: string;
-  techStack: Array<string>;
+  techStack: string;
   description: string;
   demo: string;
   gitHub: string;

@@ -19,9 +19,9 @@ function Hero() {
   return (
     <Box
       sx={{
-        height: "100vh",
         paddingLeft: "14.8%",
         paddingRight: "14.8%",
+        marginBottom: "160px",
       }}
       className="home"
     >

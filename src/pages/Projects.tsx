@@ -1,6 +1,10 @@
 import { Box, Typography, Stack } from "@mui/material";
 import Project from "../components/projects/Project";
-import { EventllegeProject } from "../components/projects/ProjectList";
+import {
+  EventllegeProject,
+  RestaurantProject,
+  FridgeFyProject,
+} from "../components/projects/ProjectList";
 
 export default function Projects() {
   const TypographyStyle = {
@@ -23,8 +27,10 @@ export default function Projects() {
     >
       <Typography sx={TypographyStyle}>Projects</Typography>
 
-      <Stack>
+      <Stack gap={7}>
         <Project project={EventllegeProject} />
+        <Project project={RestaurantProject} />
+        <Project project={FridgeFyProject} />
       </Stack>
     </Box>
   );

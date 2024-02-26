@@ -11,18 +11,14 @@ export default function Project({ project }: Props) {
   const ProjectContainerStyle = {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
   };
 
   const ProjectDescriptionContainerStyle = {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    flexGrow: "1",
     margin: "16px",
     maxWidth: "50%",
-    minWidth: "432px",
-    minHeight: "278px",
     gap: "7px",
   };
 
@@ -30,6 +26,7 @@ export default function Project({ project }: Props) {
     fontSize: "1.8rem",
     fontWeight: "500",
     fontStyle: "italic",
+    textAlign: "center",
   };
 
   const ProjectImageStyle = {
@@ -38,34 +35,53 @@ export default function Project({ project }: Props) {
     maxWidth: "394px",
     maxHeight: "267.19px",
     margin: "1rem",
-    backgroundImage: `url(${project.image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    // backgroundImage: `url(${project.image})`,
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
+    display: "flex",
   };
 
   const ProjectDescriptionStyle = {
     textAlign: "justify",
     textJustify: "inter-word",
+    marginBottom: "3px",
+  };
+
+  const ButtonsProjectStyle = {
+    width: "55px",
+    "&:hover": {
+      transform: "translateY(-0.3px)",
+      opacity: "0.8",
+    },
+    "&:active": {
+      transform: "translateY(-0.3px)",
+    },
   };
 
   return (
     <Box sx={ProjectContainerStyle}>
-      <Paper elevation={3} sx={ProjectImageStyle} />
+      <Paper elevation={3} sx={ProjectImageStyle}>
+        <img
+          src={project.image}
+          alt="project-image"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </Paper>
       <Box sx={ProjectDescriptionContainerStyle}>
         <Typography sx={ProjectNameStyle}>{project.name}</Typography>
         <Typography sx={ProjectDescriptionStyle}>
           {project.description}
         </Typography>
 
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", gap: "10px", marginBottom: "16px" }}>
           <Box>
-            <Typography> Tech Stack:</Typography>
-          </Box>
-          <Box>
-            <Typography>Frontend: NextJS, TypeScript, Material UI </Typography>
-            <Typography>
-              Backend: NodeJS, TypeScript, Firebase, PostgreSQL
+            <Typography sx={{ fontWeight: "700", minWidth: "89px" }}>
+              {" "}
+              Tech Stack:
             </Typography>
+          </Box>
+          <Box display={"flex"}>
+            <Typography>{project.techStack}</Typography>
           </Box>
         </Box>
 
@@ -77,15 +93,13 @@ export default function Project({ project }: Props) {
             gap: "60px",
           }}
         >
-          <Box sx={{ width: "55px" }}>
-            {/* need to use the property coming from props. */}
-            <Link href={"https://github.com/"} target="_blank">
+          <Box sx={ButtonsProjectStyle}>
+            <Link href={project.gitHub} target="_blank">
               <img src={GitHubImage} style={{ width: "100%" }} />
             </Link>
           </Box>
-          <Box sx={{ width: "55px" }}>
-            {/* need to use the property coming from props. */}
-            <Link href={"https://github.com/"} target="_blank">
+          <Box sx={ButtonsProjectStyle}>
+            <Link href={project.demo} target="_blank">
               <img src={DemoImage} style={{ width: "100%" }} />
             </Link>
           </Box>
