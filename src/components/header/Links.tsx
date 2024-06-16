@@ -1,20 +1,20 @@
-import { Box } from "@mui/material";
-import { Link as ScrollLink } from "react-scroll";
+import { Box } from '@mui/material'
+import { Link as ScrollLink } from 'react-scroll'
 
 export default function Links() {
   const TypographyStyle = {
-    color: "#2d2e32",
-    fontSize: "1.1rem",
-    fontWeight: "700",
-  };
+    color: '#2d2e32',
+    fontSize: '1.1rem',
+    fontWeight: '700',
+  }
   return (
     <Box
       sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "40%",
-        minWidth: "460px",
-        paddingRight: "4.5rem",
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '40%',
+        minWidth: '460px',
+        paddingRight: '4.5rem',
       }}
     >
       <Box
@@ -77,14 +77,14 @@ export default function Links() {
       >
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           Resume
         </Box>
       </Box>
     </Box>
-  );
+  )
 }

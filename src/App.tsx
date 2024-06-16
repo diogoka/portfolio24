@@ -1,7 +1,7 @@
-import Header from "./pages/Header";
-import Hero from "./pages/Hero";
-import Footer from "./pages/Footer";
-import Work from "./pages/Projects";
+import Header from './pages/Header'
+import Hero from './pages/Hero'
+import Footer from './pages/Footer'
+import Work from './pages/Projects'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Work />
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

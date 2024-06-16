@@ -1,27 +1,27 @@
-import { Box, Typography, Stack } from "@mui/material";
-import Project from "../components/projects/Project";
+import { Box, Typography, Stack } from '@mui/material'
+import Project from '../components/projects/Project'
 import {
   EventllegeProject,
   RestaurantProject,
   FridgeFyProject,
-} from "../components/projects/ProjectList";
+} from '../components/projects/ProjectList'
 
 export default function Projects() {
   const TypographyStyle = {
-    color: "#2d2e32",
-    fontSize: "2rem",
-    fontWeight: "700",
-  };
+    color: '#2d2e32',
+    fontSize: '2rem',
+    fontWeight: '700',
+  }
 
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        paddingLeft: "14.8%",
-        paddingRight: "14.8%",
-        gap: "16px",
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        paddingLeft: '14.8%',
+        paddingRight: '14.8%',
+        gap: '16px',
       }}
       className="projects"
     >
@@ -33,5 +33,5 @@ export default function Projects() {
         <Project project={FridgeFyProject} />
       </Stack>
     </Box>
-  );
+  )
 }

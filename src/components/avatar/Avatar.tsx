@@ -1,5 +1,5 @@
-import { Box, keyframes } from "@mui/material";
-import avatar from "../../public/images/avatar.jpg";
+import { Box, keyframes } from '@mui/material'
+import avatar from '../../public/images/avatar.jpg'
 
 export default function Avatar() {
   const bubble = keyframes`
@@ -15,32 +15,32 @@ export default function Avatar() {
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
-  `;
+  `
   return (
     <Box
       sx={{
-        width: "266px",
-        height: "346px",
-        minHeight: "346px",
-        minWidth: "266px",
-        border: "2px solid #F58220",
-        borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
+        width: '266px',
+        height: '346px',
+        minHeight: '346px',
+        minWidth: '266px',
+        border: '2px solid #F58220',
+        borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%',
         animation: `${bubble} 10s ease-in-out infinite`,
-        backgroundPosition: "top",
-        backgroundSize: "cover",
-        position: "relative",
-        overflow: "hidden",
+        backgroundPosition: 'top',
+        backgroundSize: 'cover',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       <img
         src={avatar}
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           left: 0,
-          width: "100%",
+          width: '100%',
         }}
       />
     </Box>
-  );
+  )
 }

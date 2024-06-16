@@ -1,35 +1,37 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material'
 
 export default function Skills() {
   const SkillContainerStyle = {
-    display: "flex",
-    maxWidth: "80vw",
-    gap: "20px",
-    "& img": {
-      width: "50px",
-      height: "50px",
+    display: 'flex',
+    maxWidth: '80vw',
+    gap: '20px',
+    '& img': {
+      width: '50px',
+      height: '50px',
     },
-  };
+    flexWrap: 'wrap',
+  }
 
   const SkillBoxStyle = {
-    display: "flex",
-    gap: "2px",
-  };
+    display: 'flex',
+    gap: '2px',
+    minWidth: '100px',
+  }
 
   return (
     <Box
       sx={{
-        display: "flex",
-        justifyContent: "flex-start",
-        paddingTop: "80px",
-        gap: "20px",
+        display: 'flex',
+        justifyContent: 'flex-start',
+        paddingTop: '80px',
+        gap: '20px',
       }}
     >
       <Typography
         sx={{
-          fontSize: "1.2rem",
-          fontWeight: "600",
-          minWidth: "110px",
+          fontSize: '1.2rem',
+          fontWeight: '600',
+          minWidth: '110px',
         }}
       >
         Tech Stack |
@@ -60,5 +62,5 @@ export default function Skills() {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
