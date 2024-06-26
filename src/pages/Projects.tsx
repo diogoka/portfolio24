@@ -18,10 +18,10 @@ export default function Projects() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
         paddingLeft: '14.8%',
         paddingRight: '14.8%',
         gap: '16px',
+        marginBottom: '50px',
       }}
       className="projects"
     >

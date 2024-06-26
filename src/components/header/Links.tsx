@@ -29,7 +29,7 @@ export default function Links() {
       >
         Projects
       </Box>
-      <Box
+      {/* <Box
         component={ScrollLink}
         to="gallery"
         spy={true}
@@ -40,7 +40,7 @@ export default function Links() {
         sx={TypographyStyle}
       >
         Gallery
-      </Box>
+      </Box> */}
       <Box
         component={ScrollLink}
         to="about"

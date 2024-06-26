@@ -10,7 +10,7 @@ export const EventllegeProject: ProjectType = {
     'NextJS, TypeScript, MaterialUI, NodeJS, TypeScript, Firebase, PostgreSQL.',
   description: `Developed a platform for college event management, allowing organizers to create and oversee events, track attendance, and generate reports. 
   Students can track their attended events and leave reviews to assist others.`,
-  demo: 'https://eventllege-ciccc.onrender.com/events',
+  demo: 'https://cornerstone-connect.onrender.com/',
   gitHub: 'https://github.com/diogoka/eventllege',
 }
 

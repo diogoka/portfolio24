@@ -10,8 +10,8 @@ type Props = {
 export default function Project({ project }: Props) {
   const ProjectContainerStyle = {
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
   }
 
   const ProjectDescriptionContainerStyle = {
@@ -30,14 +30,22 @@ export default function Project({ project }: Props) {
   }
 
   const ProjectImageStyle = {
-    minWidth: '393px',
-    minHeight: '200px',
+    minWidth: '24.06rem',
+    minHeight: '12.5rem',
     // maxWidth: "394px",
     // maxHeight: "267.19px",
     margin: '1rem',
     backgroundImage: `url(${project.image})`,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
+    '&:hover': {
+      cursor: 'pointer',
+      transform: 'translateY(-0.3px)',
+      opacity: '0.99',
+
+      boxShadow:
+        'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
+    },
   }
 
   const ProjectDescriptionStyle = {
@@ -59,7 +67,15 @@ export default function Project({ project }: Props) {
 
   return (
     <Box sx={ProjectContainerStyle}>
-      <Paper elevation={3} sx={ProjectImageStyle} />
+      <Box>
+        <Paper
+          elevation={3}
+          sx={ProjectImageStyle}
+          onClick={() => {
+            window.open(project.demo, '_blank')
+          }}
+        />
+      </Box>
       <Box sx={ProjectDescriptionContainerStyle}>
         <Typography sx={ProjectNameStyle}>{project.name}</Typography>
         <Typography sx={ProjectDescriptionStyle}>
