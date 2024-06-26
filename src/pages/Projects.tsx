@@ -21,7 +21,6 @@ export default function Projects() {
         paddingLeft: '14.8%',
         paddingRight: '14.8%',
         gap: '16px',
-        marginBottom: '50px',
       }}
       className="projects"
     >

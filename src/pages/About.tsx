@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import CodingImage from '../public/images/coding.jpg'
 
 const About = () => {
   const TypographyStyle = {
@@ -15,6 +16,7 @@ const About = () => {
         paddingLeft: '14.8%',
         paddingRight: '14.8%',
         gap: '16px',
+        paddingTop: '10rem',
       }}
       className="about"
     >
@@ -26,6 +28,7 @@ const About = () => {
           streamline my work. One notable instance was developing an MS Excel
           formula to efficiently manage data for my tasks.
           <br />
+          <br />
           Now, after growing up as a lawyer, it was time to go deep in the tech
           field and embrace what I truly love, so this is the reason why I
           started software engineering. Now, I'm in Canada, improving my skills
@@ -33,7 +36,20 @@ const About = () => {
           passion for software development.
         </Typography>
 
-        <Typography sx={{ width: '50%' }}>Image</Typography>
+        <Box
+          sx={{
+            width: '50%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          }}
+        >
+          <img
+            src={CodingImage}
+            style={{ width: '70%', borderRadius: '10px' }}
+            alt="coding"
+          />
+        </Box>
       </Box>
     </Box>
   )

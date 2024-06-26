@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, Link } from '@mui/material'
+import { Box, Typography, Link } from '@mui/material'
 import { ProjectType } from '../../types/types'
 import GitHubImage from '../../public/images/githubIconblue.png'
 import DemoImage from '../../public/images/demonstrationIcon.png'
@@ -10,8 +10,8 @@ type Props = {
 export default function Project({ project }: Props) {
   const ProjectContainerStyle = {
     display: 'flex',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   }
 
   const ProjectDescriptionContainerStyle = {
@@ -29,25 +29,6 @@ export default function Project({ project }: Props) {
     textAlign: 'center',
   }
 
-  const ProjectImageStyle = {
-    minWidth: '24.06rem',
-    minHeight: '12.5rem',
-    // maxWidth: "394px",
-    // maxHeight: "267.19px",
-    margin: '1rem',
-    backgroundImage: `url(${project.image})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    '&:hover': {
-      cursor: 'pointer',
-      transform: 'translateY(-0.3px)',
-      opacity: '0.99',
-
-      boxShadow:
-        'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
-    },
-  }
-
   const ProjectDescriptionStyle = {
     textAlign: 'justify',
     textJustify: 'inter-word',
@@ -56,6 +37,7 @@ export default function Project({ project }: Props) {
 
   const ButtonsProjectStyle = {
     width: '55px',
+    transition: 'all 0.1s ease-in-out',
     '&:hover': {
       transform: 'translateY(-0.3px)',
       opacity: '0.8',
@@ -67,13 +49,30 @@ export default function Project({ project }: Props) {
 
   return (
     <Box sx={ProjectContainerStyle}>
-      <Box>
-        <Paper
-          elevation={3}
-          sx={ProjectImageStyle}
-          onClick={() => {
-            window.open(project.demo, '_blank')
-          }}
+      <Box
+        sx={{
+          maxWidth: '30rem',
+          minWidth: '20rem',
+          borderRadius: '10px',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': {
+            cursor: 'pointer',
+            transform: 'translateY(-0.3px)',
+            opacity: '0.99',
+            boxShadow:
+              'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
+          },
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        onClick={() => {
+          window.open(project.demo, '_blank')
+        }}
+      >
+        <img
+          src={project.image}
+          style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
         />
       </Box>
       <Box sx={ProjectDescriptionContainerStyle}>

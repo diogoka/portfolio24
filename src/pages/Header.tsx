@@ -16,7 +16,6 @@ function Header() {
     minWidth: '100%',
     width: '100%',
     zIndex: 90,
-    marginBottom: '136px',
   }
 
   return (
@@ -39,7 +38,13 @@ function Header() {
           paddingLeft: '4.5rem',
         }}
       >
-        <Typography sx={{ fontSize: '2.34rem', fontWeight: 'bold' }}>
+        <Typography
+          sx={{
+            fontSize: '2.34rem',
+            fontWeight: 'bold',
+            transition: 'all 0.3s ease-in-out',
+          }}
+        >
           dk
         </Typography>
         <Typography

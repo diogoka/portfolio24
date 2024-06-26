@@ -3,6 +3,7 @@ import Hero from './pages/Hero'
 import Footer from './pages/Footer'
 import Work from './pages/Projects'
 import About from './pages/About'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Work />
       <About />
+      <Contact />
       <Footer />
     </>
   )

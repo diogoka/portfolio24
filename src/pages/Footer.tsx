@@ -8,6 +8,7 @@ export default function Footer() {
         justifyContent: 'center',
         alignContent: 'center',
         height: '10vh',
+        width: '100%',
       }}
     >
       <Typography sx={{ alignContent: 'center' }}>

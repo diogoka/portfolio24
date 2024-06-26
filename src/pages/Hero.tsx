@@ -21,7 +21,8 @@ function Hero() {
       sx={{
         paddingLeft: '14.8%',
         paddingRight: '14.8%',
-        marginBottom: '200px',
+        height: '90vh',
+        paddingTop: '10rem',
       }}
       className="home"
     >
