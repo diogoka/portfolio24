@@ -24,7 +24,7 @@ const Contact = () => {
         gap: '16px',
         paddingTop: '10rem',
       }}
-      className="about"
+      className="contact"
     >
       <Box>
         <Typography sx={TypographyStyle}>Contact</Typography>

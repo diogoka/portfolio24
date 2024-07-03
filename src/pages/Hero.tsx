@@ -31,7 +31,10 @@ function Hero() {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: {
+            md: 'space-between',
+          },
+          gap: '22px',
         }}
       >
         <Box>
