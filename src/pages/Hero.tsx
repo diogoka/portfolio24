@@ -23,6 +23,8 @@ function Hero() {
         paddingRight: '14.8%',
         height: '90vh',
         paddingTop: '10rem',
+        // less then md:
+        // backgroundColor: { md: 'red' },
       }}
       className="home"
     >
