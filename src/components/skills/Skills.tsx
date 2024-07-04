@@ -4,7 +4,7 @@ export default function Skills() {
   const SkillContainerStyle = {
     display: 'flex',
     maxWidth: '80vw',
-    gap: '20px',
+    gap: { xs: '15px', sm: '20px' },
     '& img': {
       width: '50px',
       height: '50px',
@@ -23,7 +23,10 @@ export default function Skills() {
       sx={{
         display: 'flex',
         justifyContent: 'flex-start',
-        paddingTop: '80px',
+        paddingTop: {
+          xs: '3rem',
+          sm: '80px',
+        },
         gap: '20px',
       }}
     >
@@ -32,12 +35,23 @@ export default function Skills() {
           fontSize: '1.2rem',
           fontWeight: '600',
           minWidth: '110px',
+          display: { xs: 'none', sm: 'block' },
         }}
       >
         Tech Stack |
       </Typography>
 
       <Box sx={SkillContainerStyle}>
+        <Typography
+          sx={{
+            fontSize: '1.2rem',
+            fontWeight: '600',
+            minWidth: '110px',
+            display: { xs: 'block', sm: 'none' },
+          }}
+        >
+          Tech Stack |
+        </Typography>
         <Box sx={SkillBoxStyle}>
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />

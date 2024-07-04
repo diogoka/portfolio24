@@ -1,5 +1,5 @@
 import { Box, Link, Typography } from '@mui/material'
-import MailIcon from '../assets/icons/mail.png'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
 
 const TypographyStyle = {
   color: '#2d2e32',
@@ -8,7 +8,7 @@ const TypographyStyle = {
 }
 
 const TextStyle = {
-  fontSize: '1.4rem',
+  fontSize: { xs: '1rem', sm: '1.4rem' },
   minWidth: '354.94px',
 }
 
@@ -19,10 +19,6 @@ const Contact = () => {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        paddingLeft: '14.8%',
-        paddingRight: '14.8%',
-        gap: '16px',
-        paddingTop: '10rem',
       }}
       className="contact"
     >
@@ -35,7 +31,8 @@ const Contact = () => {
           width: '100%',
           minWidth: '100%',
           gap: '22px',
-          alignItems: 'center',
+          alignItems: { xs: 'flex-start', lg: 'center' },
+          flexDirection: { xs: 'column', lg: 'row' },
         }}
       >
         <Typography sx={TextStyle}>
@@ -48,22 +45,28 @@ const Contact = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            fontSize: '1.4rem',
+            fontSize: { xs: '1rem', sm: '1.4rem' },
             minWidth: '332px',
             textDecoration: 'none',
             color: '#2d2e32',
-            transition: 'all 0.1s ease-in-out',
+            transition: 'all 0.3s ease-in-out',
             '&:hover': {
+              transition: 'all 0.3s ease-in-out',
               transform: 'translateY(-0.3px)',
               opacity: '0.8',
-              color: '#002147',
+              color: '#F58220',
             },
             '&:active': {
               transform: 'translateY(-0.3px)',
             },
+            '&:hover .mail-icon': {
+              transition: 'all 0.3s ease-in-out',
+              filter:
+                'invert(68%) sepia(83%) saturate(414%) hue-rotate(352deg) brightness(101%) contrast(103%)',
+            },
           }}
         >
-          <img src={MailIcon} style={{ minWidth: '52px', width: '6.5%' }} />
+          <MailOutlineIcon sx={{ fontSize: '2rem' }} />
           diogokalmeida@gmail.com
         </Link>
       </Box>

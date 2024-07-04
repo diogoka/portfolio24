@@ -11,6 +11,7 @@ export default function Projects() {
     color: '#2d2e32',
     fontSize: '2rem',
     fontWeight: '700',
+    marginBottom: { xs: '25px', md: '0' },
   }
 
   return (
@@ -18,9 +19,7 @@ export default function Projects() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        paddingLeft: '14.8%',
-        paddingRight: '14.8%',
-        gap: '16px',
+        marginBottom: { xs: '2rem', lg: '8rem' },
       }}
       className="projects"
     >

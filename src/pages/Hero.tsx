@@ -19,18 +19,16 @@ function Hero() {
   return (
     <Box
       sx={{
-        paddingLeft: '14.8%',
-        paddingRight: '14.8%',
-        height: '90vh',
-        paddingTop: '10rem',
-        // less then md:
-        // backgroundColor: { md: 'red' },
+        paddingTop: { xs: '2rem', sm: '10rem' },
+        height: '100%',
+        marginBottom: { xs: '5rem', lg: '12rem' },
       }}
       className="home"
     >
       <Box
         sx={{
           display: 'flex',
+          flexDirection: { xs: 'column-reverse', sm: 'row' },
           justifyContent: {
             md: 'space-between',
           },
@@ -40,7 +38,11 @@ function Hero() {
         <Box>
           <Typography
             sx={{
-              fontSize: '60px',
+              fontSize: {
+                xs: '47px',
+                sm: '60px',
+              },
+
               fontWeight: '700',
             }}
           >

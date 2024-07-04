@@ -8,15 +8,17 @@ export default function Links() {
     color: '#2d2e32',
     fontSize: '1.1rem',
     fontWeight: '700',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
   return (
     <Box
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        width: '40%',
+        width: '34%',
         minWidth: '460px',
-        paddingRight: '4.5rem',
       }}
     >
       <Box
@@ -67,26 +69,23 @@ export default function Links() {
       >
         Contact
       </Box>
-      <Box
-        component={ScrollLink}
-        to="resume"
-        spy={true}
-        smooth={true}
-        duration={500}
-        offset={-70}
-        className="menu-hover"
-        sx={TypographyStyle}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+      <Box className="menu-hover" sx={TypographyStyle}>
+        <a
+          href="../../assets/resume.pdf"
+          download="resumeDiogo.pdf"
+          style={{ textDecoration: 'none', color: 'inherit' }}
         >
-          Resume
-          <DownloadIcon />
-        </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            Resume
+            <DownloadIcon />
+          </Box>
+        </a>
       </Box>
     </Box>
   )

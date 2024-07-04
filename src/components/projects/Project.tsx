@@ -2,23 +2,30 @@ import { Box, Typography, Link } from '@mui/material'
 import { ProjectType } from '../../types/types'
 import GitHubImage from '../../public/images/githubIconblue.png'
 import DemoImage from '../../public/images/demonstrationIcon.png'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 type Props = {
   project: ProjectType
 }
 
 export default function Project({ project }: Props) {
+  const isMobile = useMediaQuery('(max-width:1100px)')
   const ProjectContainerStyle = {
     display: 'flex',
+    flexDirection: {
+      xs: 'column',
+      lg: 'row',
+    },
     justifyContent: 'space-between',
     alignItems: 'center',
+    rowGap: isMobile ? '5px' : '0',
   }
 
   const ProjectDescriptionContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
     margin: '16px',
-    maxWidth: '50%',
+    maxWidth: isMobile ? '100%' : '50%',
     gap: '7px',
   }
 
@@ -32,7 +39,7 @@ export default function Project({ project }: Props) {
   const ProjectDescriptionStyle = {
     textAlign: 'justify',
     textJustify: 'inter-word',
-    marginBottom: '3px',
+    marginBottom: isMobile ? '8px' : '3px',
   }
 
   const ButtonsProjectStyle = {
@@ -49,6 +56,9 @@ export default function Project({ project }: Props) {
 
   return (
     <Box sx={ProjectContainerStyle}>
+      {isMobile && (
+        <Typography sx={ProjectNameStyle}>{project.name}</Typography>
+      )}
       <Box
         sx={{
           maxWidth: '30rem',
@@ -63,6 +73,7 @@ export default function Project({ project }: Props) {
               'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
           },
           display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'center',
           alignItems: 'center',
         }}
@@ -76,7 +87,9 @@ export default function Project({ project }: Props) {
         />
       </Box>
       <Box sx={ProjectDescriptionContainerStyle}>
-        <Typography sx={ProjectNameStyle}>{project.name}</Typography>
+        {!isMobile && (
+          <Typography sx={ProjectNameStyle}>{project.name}</Typography>
+        )}
         <Typography sx={ProjectDescriptionStyle}>
           {project.description}
         </Typography>

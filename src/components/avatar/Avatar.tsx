@@ -19,17 +19,32 @@ export default function Avatar() {
   return (
     <Box
       sx={{
-        width: '266px',
-        height: '346px',
-        minHeight: '346px',
-        minWidth: '266px',
+        width: {
+          xs: '227px',
+          sm: '266px',
+        },
+        height: {
+          xs: '290px',
+          sm: '346px',
+        },
+        minHeight: {
+          xs: '0',
+          sm: '346px',
+        },
+        minWidth: {
+          xs: '0',
+          sm: '266px',
+        },
+
         border: '2px solid #F58220',
         borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%',
         animation: `${bubble} 10s ease-in-out infinite`,
-        backgroundPosition: 'top',
-        backgroundSize: 'cover',
         position: 'relative',
         overflow: 'hidden',
+        margin: {
+          xs: '0 auto',
+          sm: '0',
+        },
       }}
     >
       <img

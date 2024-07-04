@@ -7,14 +7,14 @@ export default function Footer() {
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
-        height: '10vh',
+        height: '80px',
         width: '100%',
         backgroundColor: '#28282B',
         color: '#FAF9F6',
-        marginTop: '10rem',
+        marginTop: '5rem',
       }}
     >
-      <Typography sx={{ alignContent: 'center' }}>
+      <Typography sx={{ margin: 'auto auto' }}>
         Created with ❤️ by dka
       </Typography>
     </Box>
