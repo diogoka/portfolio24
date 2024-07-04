@@ -21,7 +21,7 @@ function Hero() {
       sx={{
         paddingTop: { xs: '2rem', sm: '10rem' },
         height: '100%',
-        marginBottom: { xs: '5rem', lg: '12rem' },
+        marginBottom: { xs: '5rem', lg: '15.2rem' },
       }}
       className="home"
     >

@@ -16,7 +16,7 @@ const About = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: isMobile ? '20px' : '0',
-        marginBottom: isMobile ? '35px' : '50px',
+        marginBottom: isMobile ? '35px' : '6rem',
       }}
       className="about"
     >
