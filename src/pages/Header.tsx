@@ -72,6 +72,35 @@ function Header() {
     }
   }
 
+  const drawerComponent = (index: number, text: string) => {
+    if (index === 4) {
+      return (
+        <a
+          href="https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FresumeDiogo.pdf?alt=media&token=8afd4e4c-4ee4-433f-a3bc-d99b92e49674"
+          download="resumeDiogo.pdf"
+          target="_blank"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          {text}
+        </a>
+      )
+    } else {
+      return (
+        <Box
+          component={ScrollLink}
+          to={text.toLocaleLowerCase()}
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-100}
+          onClick={toggleDrawer(false)}
+        >
+          {text}
+        </Box>
+      )
+    }
+  }
+
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
@@ -81,19 +110,7 @@ function Header() {
               <ListItemButton>
                 <ListItemIcon>{IconSelector(index)}</ListItemIcon>
                 <ListItemText
-                  primary={
-                    <Box
-                      component={ScrollLink}
-                      to={text.toLocaleLowerCase()}
-                      spy={true}
-                      smooth={true}
-                      duration={500}
-                      offset={-100}
-                      onClick={toggleDrawer(false)}
-                    >
-                      {text}
-                    </Box>
-                  }
+                  primary={drawerComponent(index, text)}
                   disableTypography
                   sx={ListItemStyle}
                 />
