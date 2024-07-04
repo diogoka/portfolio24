@@ -71,8 +71,9 @@ export default function Links() {
       </Box>
       <Box className="menu-hover" sx={TypographyStyle}>
         <a
-          href="../../assets/resume.pdf"
+          href="https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FresumeDiogo.pdf?alt=media&token=8afd4e4c-4ee4-433f-a3bc-d99b92e49674"
           download="resumeDiogo.pdf"
+          target="_blank"
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <Box
