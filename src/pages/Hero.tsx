@@ -50,7 +50,8 @@ function Hero() {
           </Typography>
           <Box sx={{ paddingLeft: '0.3rem', paddingTop: '1rem' }}>
             <Typography sx={TypographyStyle}>
-              Hi! I'm Diogo and I've +2y of full stack development.
+              Hi! I'm <strong>Diogo</strong> and I've +2y of full stack
+              development.
               <br />I started my path in Brazil, but now I'm based in
               Vancouver/BC.
             </Typography>

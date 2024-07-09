@@ -14,12 +14,12 @@ import Links from '../components/header/Links'
 import { Link as ScrollLink } from 'react-scroll'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useState } from 'react'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
 import MenuIcon from '@mui/icons-material/Menu'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import InfoIcon from '@mui/icons-material/Info'
 import HomeIcon from '@mui/icons-material/Home'
+import ContactPageIcon from '@mui/icons-material/ContactPage'
 
 function Header() {
   const isMobile = useMediaQuery('(max-width:700px)')
@@ -68,7 +68,7 @@ function Header() {
       case 3:
         return <ContactMailIcon sx={{ color: '#F58220' }} />
       case 4:
-        return <InboxIcon sx={{ color: '#F58220' }} />
+        return <ContactPageIcon sx={{ color: '#F58220' }} />
     }
   }
 

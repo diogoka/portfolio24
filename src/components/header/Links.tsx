@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import { Link as ScrollLink } from 'react-scroll'
-import DownloadIcon from '@mui/icons-material/Download'
 
 export default function Links() {
   const TypographyStyle = {
@@ -84,7 +83,6 @@ export default function Links() {
             }}
           >
             Resume
-            <DownloadIcon />
           </Box>
         </a>
       </Box>

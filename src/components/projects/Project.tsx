@@ -1,8 +1,8 @@
-import { Box, Typography, Link } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 import { ProjectType } from '../../types/types'
-import GitHubImage from '../../public/images/githubIconblue.png'
-import DemoImage from '../../public/images/demonstrationIcon.png'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import ComputerIcon from '@mui/icons-material/Computer'
 
 type Props = {
   project: ProjectType
@@ -11,6 +11,7 @@ type Props = {
 export default function Project({ project }: Props) {
   const isMobile = useMediaQuery('(max-width:1100px)')
   const ProjectContainerStyle = {
+    minHeight: '330px',
     display: 'flex',
     flexDirection: {
       xs: 'column',
@@ -39,18 +40,26 @@ export default function Project({ project }: Props) {
   const ProjectDescriptionStyle = {
     textAlign: 'justify',
     textJustify: 'inter-word',
-    marginBottom: isMobile ? '8px' : '3px',
+    marginBottom: isMobile ? '8px' : '21px',
   }
 
   const ButtonsProjectStyle = {
-    width: '55px',
+    minWidth: '131px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2d2e32',
+
+    padding: '9.5px 18px',
     transition: 'all 0.1s ease-in-out',
     '&:hover': {
       transform: 'translateY(-0.3px)',
       opacity: '0.8',
+      backgroundColor: '#2d2e32a1',
     },
     '&:active': {
       transform: 'translateY(-0.3px)',
+      backgroundColor: '#2d2e32a1',
     },
   }
 
@@ -111,19 +120,27 @@ export default function Project({ project }: Props) {
             display: 'flex',
             width: '100%',
             justifyContent: 'center',
-            gap: '60px',
+            gap: '30px',
           }}
         >
-          <Box sx={ButtonsProjectStyle}>
-            <Link href={project.gitHub} target="_blank">
-              <img src={GitHubImage} style={{ width: '100%' }} />
-            </Link>
-          </Box>
-          <Box sx={ButtonsProjectStyle}>
-            <Link href={project.demo} target="_blank">
-              <img src={DemoImage} style={{ width: '100%' }} />
-            </Link>
-          </Box>
+          <Button
+            variant="contained"
+            sx={ButtonsProjectStyle}
+            href={project.gitHub}
+            target="_blank"
+            endIcon={<GitHubIcon />}
+          >
+            GitHub
+          </Button>
+          <Button
+            variant="contained"
+            sx={ButtonsProjectStyle}
+            href={project.demo}
+            target="_blank"
+            endIcon={<ComputerIcon />}
+          >
+            Live Demo
+          </Button>
         </Box>
       </Box>
     </Box>
