@@ -9,26 +9,26 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from '@mui/material'
-import Links from '../components/header/Links'
-import { Link as ScrollLink } from 'react-scroll'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import { useState } from 'react'
-import AccountTreeIcon from '@mui/icons-material/AccountTree'
-import MenuIcon from '@mui/icons-material/Menu'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
-import InfoIcon from '@mui/icons-material/Info'
-import HomeIcon from '@mui/icons-material/Home'
-import ContactPageIcon from '@mui/icons-material/ContactPage'
+} from '@mui/material';
+import Links from '../components/header/Links';
+import { Link as ScrollLink } from 'react-scroll';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useState } from 'react';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import MenuIcon from '@mui/icons-material/Menu';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import InfoIcon from '@mui/icons-material/Info';
+import HomeIcon from '@mui/icons-material/Home';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
 
 function Header() {
-  const isMobile = useMediaQuery('(max-width:700px)')
+  const isMobile = useMediaQuery('(max-width:700px)');
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen)
-  }
+    setOpen(newOpen);
+  };
 
   const ContainerStyle = {
     position: 'sticky',
@@ -48,42 +48,42 @@ function Header() {
       md: '1rem 2rem',
       lg: '1rem 3.5rem',
     },
-  }
+  };
 
   const ListItemStyle = {
     transition: 'all 0.3s ease-in-out',
     color: '#2d2e32',
     fontSize: '1.1rem',
     fontWeight: '700',
-  }
+  };
 
   const IconSelector = (index: number) => {
     switch (index) {
       case 0:
-        return <HomeIcon sx={{ color: '#F58220' }} />
+        return <HomeIcon sx={{ color: '#F58220' }} />;
       case 1:
-        return <AccountTreeIcon sx={{ color: '#F58220' }} />
+        return <AccountTreeIcon sx={{ color: '#F58220' }} />;
       case 2:
-        return <InfoIcon sx={{ color: '#F58220' }} />
+        return <InfoIcon sx={{ color: '#F58220' }} />;
       case 3:
-        return <ContactMailIcon sx={{ color: '#F58220' }} />
+        return <ContactMailIcon sx={{ color: '#F58220' }} />;
       case 4:
-        return <ContactPageIcon sx={{ color: '#F58220' }} />
+        return <ContactPageIcon sx={{ color: '#F58220' }} />;
     }
-  }
+  };
 
   const drawerComponent = (index: number, text: string) => {
     if (index === 4) {
       return (
         <a
-          href="https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FresumeDiogo.pdf?alt=media&token=8afd4e4c-4ee4-433f-a3bc-d99b92e49674"
-          download="resumeDiogo.pdf"
-          target="_blank"
+          href='https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FDiogoResume.pdf?alt=media&token=300733fd-6b13-472b-8b1b-96a90b8c02e9'
+          download='resumeDiogo.pdf'
+          target='_blank'
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           {text}
         </a>
-      )
+      );
     } else {
       return (
         <Box
@@ -97,12 +97,12 @@ function Header() {
         >
           {text}
         </Box>
-      )
+      );
     }
-  }
+  };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer(false)}>
       <List>
         {['Home', 'Projects', 'About', 'Contact', 'Resume'].map(
           (text, index) => (
@@ -120,18 +120,18 @@ function Header() {
         )}
       </List>
     </Box>
-  )
+  );
 
   return (
     <Container sx={ContainerStyle}>
       <Box
         component={ScrollLink}
-        to="home"
+        to='home'
         spy={true}
         smooth={true}
         duration={500}
         offset={-70}
-        className="menu-hover"
+        className='menu-hover'
         sx={{
           textDecoration: 'none',
           color: '#2d2e32',
@@ -166,7 +166,7 @@ function Header() {
           <Drawer
             open={open}
             onClose={toggleDrawer(false)}
-            anchor="right"
+            anchor='right'
             sx={{ zIndex: 9999 }}
           >
             {DrawerList}
@@ -176,7 +176,7 @@ function Header() {
         <Links />
       )}
     </Container>
-  )
+  );
 }
 
-export default Header
+export default Header;

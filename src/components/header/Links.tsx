@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
-import { Link as ScrollLink } from 'react-scroll'
+import { Box } from '@mui/material';
+import { Link as ScrollLink } from 'react-scroll';
 
 export default function Links() {
   const TypographyStyle = {
@@ -10,7 +10,7 @@ export default function Links() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  };
   return (
     <Box
       sx={{
@@ -22,12 +22,12 @@ export default function Links() {
     >
       <Box
         component={ScrollLink}
-        to="projects"
+        to='projects'
         spy={true}
         smooth={true}
         duration={500}
         offset={-110}
-        className="menu-hover"
+        className='menu-hover'
         sx={TypographyStyle}
       >
         Projects
@@ -46,33 +46,33 @@ export default function Links() {
       </Box> */}
       <Box
         component={ScrollLink}
-        to="about"
+        to='about'
         spy={true}
         smooth={true}
         duration={500}
         offset={-70}
-        className="menu-hover"
+        className='menu-hover'
         sx={TypographyStyle}
       >
         About me
       </Box>
       <Box
         component={ScrollLink}
-        to="contact"
+        to='contact'
         spy={true}
         smooth={true}
         duration={500}
         offset={-70}
-        className="menu-hover"
+        className='menu-hover'
         sx={TypographyStyle}
       >
         Contact
       </Box>
-      <Box className="menu-hover" sx={TypographyStyle}>
+      <Box className='menu-hover' sx={TypographyStyle}>
         <a
-          href="https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FresumeDiogo.pdf?alt=media&token=8afd4e4c-4ee4-433f-a3bc-d99b92e49674"
-          download="resumeDiogo.pdf"
-          target="_blank"
+          href='https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FDiogoResume.pdf?alt=media&token=300733fd-6b13-472b-8b1b-96a90b8c02e9'
+          download='resumeDiogo.pdf'
+          target='_blank'
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <Box
@@ -87,5 +87,5 @@ export default function Links() {
         </a>
       </Box>
     </Box>
-  )
+  );
 }
