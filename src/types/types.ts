@@ -5,4 +5,5 @@ export type ProjectType = {
   description: string;
   demo: string;
   gitHub: string;
+  olderSite?: string;
 };

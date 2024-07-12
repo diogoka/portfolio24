@@ -46,12 +46,12 @@ function Hero() {
               fontWeight: '700',
             }}
           >
-            Full-Stack Developer
+            Hi! I'm Diogo.
           </Typography>
           <Box sx={{ paddingLeft: '0.3rem', paddingTop: '1rem' }}>
             <Typography sx={TypographyStyle}>
-              Hi! I'm <strong>Diogo</strong> and I've +2y of full stack
-              development.
+              I'm a <strong> full-stack</strong> developer with +2y of
+              experience.
               <br />I started my path in Brazil, but now I'm based in
               Vancouver/BC.
             </Typography>

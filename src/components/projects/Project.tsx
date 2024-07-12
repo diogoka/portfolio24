@@ -1,15 +1,15 @@
-import { Box, Typography, Button } from '@mui/material'
-import { ProjectType } from '../../types/types'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import ComputerIcon from '@mui/icons-material/Computer'
+import { Box, Typography, Button } from '@mui/material';
+import { ProjectType } from '../../types/types';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ComputerIcon from '@mui/icons-material/Computer';
 
 type Props = {
-  project: ProjectType
-}
+  project: ProjectType;
+};
 
 export default function Project({ project }: Props) {
-  const isMobile = useMediaQuery('(max-width:1100px)')
+  const isMobile = useMediaQuery('(max-width:1100px)');
   const ProjectContainerStyle = {
     minHeight: '330px',
     display: 'flex',
@@ -20,7 +20,7 @@ export default function Project({ project }: Props) {
     justifyContent: 'space-between',
     alignItems: 'center',
     rowGap: isMobile ? '5px' : '0',
-  }
+  };
 
   const ProjectDescriptionContainerStyle = {
     display: 'flex',
@@ -28,20 +28,20 @@ export default function Project({ project }: Props) {
     margin: '16px',
     maxWidth: isMobile ? '100%' : '50%',
     gap: '7px',
-  }
+  };
 
   const ProjectNameStyle = {
     fontSize: '1.8rem',
     fontWeight: '500',
     fontStyle: 'italic',
     textAlign: 'center',
-  }
+  };
 
   const ProjectDescriptionStyle = {
     textAlign: 'justify',
     textJustify: 'inter-word',
     marginBottom: isMobile ? '8px' : '21px',
-  }
+  };
 
   const ButtonsProjectStyle = {
     minWidth: '131px',
@@ -61,7 +61,7 @@ export default function Project({ project }: Props) {
       transform: 'translateY(-0.3px)',
       backgroundColor: '#2d2e32a1',
     },
-  }
+  };
 
   return (
     <Box sx={ProjectContainerStyle}>
@@ -87,7 +87,7 @@ export default function Project({ project }: Props) {
           alignItems: 'center',
         }}
         onClick={() => {
-          window.open(project.demo, '_blank')
+          window.open(project.demo, '_blank');
         }}
       >
         <img
@@ -102,6 +102,15 @@ export default function Project({ project }: Props) {
         <Typography sx={ProjectDescriptionStyle}>
           {project.description}
         </Typography>
+
+        {project.olderSite && (
+          <Typography sx={{ width: 'fit-content' }}>
+            The older site can be found at{' '}
+            <a href={project.olderSite} target='_blank'>
+              {project.olderSite}
+            </a>
+          </Typography>
+        )}
 
         <Box sx={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
           <Box>
@@ -124,19 +133,19 @@ export default function Project({ project }: Props) {
           }}
         >
           <Button
-            variant="contained"
+            variant='contained'
             sx={ButtonsProjectStyle}
             href={project.gitHub}
-            target="_blank"
+            target='_blank'
             endIcon={<GitHubIcon />}
           >
             GitHub
           </Button>
           <Button
-            variant="contained"
+            variant='contained'
             sx={ButtonsProjectStyle}
             href={project.demo}
-            target="_blank"
+            target='_blank'
             endIcon={<ComputerIcon />}
           >
             Live Demo
@@ -144,5 +153,5 @@ export default function Project({ project }: Props) {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
