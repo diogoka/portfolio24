@@ -2,6 +2,7 @@ import { ProjectType } from '../../types/types';
 import TsukiyaImgURL from '../../public/images/Tsukiya.png';
 import FridgefyImg from '../../public/images/Fridgefy.png';
 import CornerstoneConnectImg from '../../public/images/cornerstone-connect.png';
+import CashOut from '../../public/images/cash-out.png';
 
 export const EventllegeProject: ProjectType = {
   name: 'Cornerstone Connect',
@@ -12,6 +13,16 @@ export const EventllegeProject: ProjectType = {
   Students can track their attended events and leave reviews to assist others.`,
   demo: 'https://cornerstone-connect.ca',
   gitHub: 'https://github.com/diogoka/eventllege',
+};
+
+export const CashOutAppProject: ProjectType = {
+  name: 'Cash-out App',
+  image: `${CashOut}`,
+  techStack: 'NextJS, TypeScript, Zustand, TailWind',
+  description: `This program streamlines the bar cash-out process, reducing the time from 15-20 minutes to 5-10 minutes. 
+    This saves about 10 minutes per cash-out, totaling 20 minutes daily and 10 hours monthly. This efficiency allows bartenders to focus on other tasks, saving employers valuable labor hours. Obs.: Made only to be used on mobile devices.`,
+  demo: 'https://cash-out-app.onrender.com/',
+  gitHub: 'https://github.com/diogoka/cash-out-app',
 };
 
 export const RestaurantProject: ProjectType = {
