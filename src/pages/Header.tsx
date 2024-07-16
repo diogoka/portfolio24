@@ -76,7 +76,7 @@ function Header() {
     if (index === 4) {
       return (
         <a
-          href='https://firebasestorage.googleapis.com/v0/b/eventllege.appspot.com/o/resume%2FDiogoResume.pdf?alt=media&token=70700161-c994-42fe-935a-df9a369c0bcc'
+          href={import.meta.env.VITE_REACT_RESUME_URL}
           download='resumeDiogo.pdf'
           target='_blank'
           style={{ textDecoration: 'none', color: 'inherit' }}

@@ -21,7 +21,7 @@ export const CashOutAppProject: ProjectType = {
   techStack: 'NextJS, TypeScript, Zustand, TailWind',
   description: `This program streamlines the bar cash-out process, reducing the time from 15-20 minutes to 5-10 minutes. 
     This saves about 10 minutes per cash-out, totaling 20 minutes daily and 10 hours monthly. This efficiency allows bartenders to focus on other tasks, saving employers valuable labor hours. Obs.: Made only to be used on mobile devices.`,
-  demo: 'https://cash-out-app.onrender.com/',
+  demo: 'https://cash-out-app.vercel.app/',
   gitHub: 'https://github.com/diogoka/cash-out-app',
 };
 
