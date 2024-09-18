@@ -1,8 +1,9 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Fade } from '@mui/material';
 import { ProjectType } from '../../types/types';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ComputerIcon from '@mui/icons-material/Computer';
+import { useState } from 'react';
 
 type Props = {
   project: ProjectType;
@@ -10,6 +11,13 @@ type Props = {
 
 export default function Project({ project }: Props) {
   const isMobile = useMediaQuery('(max-width:1100px)');
+
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   const ProjectContainerStyle = {
     minHeight: '330px',
     display: 'flex',
@@ -70,8 +78,8 @@ export default function Project({ project }: Props) {
       )}
       <Box
         sx={{
-          maxWidth: '30rem',
-          minWidth: '20rem',
+          maxWidth: isMobile ? null : '500px',
+          minWidth: isMobile ? null : '500px',
           borderRadius: '10px',
           transition: 'all 0.3s ease-in-out',
           '&:hover': {
@@ -90,10 +98,13 @@ export default function Project({ project }: Props) {
           window.open(project.demo, '_blank');
         }}
       >
-        <img
-          src={project.image}
-          style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
-        />
+        <Fade in={imageLoaded} timeout={1500} easing={'ease-in'}>
+          <img
+            src={project.image}
+            style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
+            onLoad={handleImageLoad}
+          />
+        </Fade>
       </Box>
       <Box sx={ProjectDescriptionContainerStyle}>
         {!isMobile && (
