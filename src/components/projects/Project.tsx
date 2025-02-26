@@ -7,9 +7,10 @@ import { useState } from 'react';
 
 type Props = {
   project: ProjectType;
+  noDemo?: boolean;
 };
 
-export default function Project({ project }: Props) {
+export default function Project({ project, noDemo }: Props) {
   const isMobile = useMediaQuery('(max-width:1100px)');
 
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
@@ -157,9 +158,10 @@ export default function Project({ project }: Props) {
             sx={ButtonsProjectStyle}
             href={project.demo}
             target='_blank'
+            disabled={noDemo}
             endIcon={<ComputerIcon />}
           >
-            Live Demo
+            {noDemo ? 'Demo Soon' : 'Live Demo'}
           </Button>
         </Box>
       </Box>

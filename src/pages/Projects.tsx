@@ -27,7 +27,7 @@ export default function Projects() {
       <Typography sx={TypographyStyle}>Projects</Typography>
 
       <Stack gap={7}>
-        <Project project={EventllegeProject} />
+        <Project project={EventllegeProject} noDemo />
         <Project project={CashOutAppProject} />
         <Project project={RestaurantProject} />
         <Project project={FridgeFyProject} />
