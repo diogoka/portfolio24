@@ -1,10 +1,9 @@
-import Header from './pages/Header'
-import Hero from './pages/Hero'
-import Footer from './pages/Footer'
-import Work from './pages/Projects'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import { Box } from '@mui/material'
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import ProjectDetail from './pages/ProjectDetail';
+import Header from './pages/Header';
+import Footer from './pages/Footer';
+import { Box } from '@mui/material';
 
 function App() {
   return (
@@ -18,14 +17,14 @@ function App() {
           flexDirection: 'column',
         }}
       >
-        <Hero />
-        <Work />
-        <About />
-        <Contact />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/project/:id' element={<ProjectDetail />} />
+        </Routes>
       </Box>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
