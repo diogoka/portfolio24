@@ -26,11 +26,11 @@ function GridLayout({ children, layout = 'default' }: Props) {
       container: { spacing: 0, alignItems: 'stretch' },
       gridTemplateAreas: {
         xs: `
-          "card1 card1 card1 card1"
-          "image1 image1 image1 image1"
-          "image2 image2 image2 image2"
-          "card2 card2 card2 card2"
-        `,
+          "image1"
+          "card1"  
+          "image2"
+          "card2"
+          `,
         md: `
           ". image1 . ."
           "card1 image1 image2 ."
@@ -47,7 +47,7 @@ function GridLayout({ children, layout = 'default' }: Props) {
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr 1fr' },
-          gridTemplateRows: 'repeat(4, 1fr)',
+          gridTemplateRows: '0.8fr 1fr 1fr 0.5fr',
           gridTemplateAreas: layouts[layout].gridTemplateAreas,
           gap: 0,
           minHeight: '600px',

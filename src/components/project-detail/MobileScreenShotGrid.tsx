@@ -26,8 +26,6 @@ function MobileScreenshotGrid({
         position: 'relative',
       }}
     >
-      {/* Badge de Issue - posicionado acima da imagem */}
-
       {/* Screenshot Mobile */}
       <Box
         sx={{
@@ -41,23 +39,35 @@ function MobileScreenshotGrid({
           border: '8px solid #2d2e32',
           transition: 'all 0.3s ease-in-out',
           position: 'relative',
-          // Posicionamento para encostar as imagens
-          marginLeft: gridArea === 'image1' ? 'auto' : 0,
-          marginRight: gridArea === 'image2' ? 'auto' : 0,
-          transform:
-            gridArea === 'image1'
-              ? 'translateX(10px)'
-              : gridArea === 'image2'
-              ? 'translateX(-10px)'
-              : 'none',
+          // Posicionamento responsivo
+          marginLeft: {
+            xs: 0, // Mobile: sem margin (centralizado)
+            md: gridArea === 'image1' ? 'auto' : 0, // Desktop: margin apenas para image1
+          },
+          marginRight: {
+            xs: 0, // Mobile: sem margin (centralizado)
+            md: gridArea === 'image2' ? 'auto' : 0, // Desktop: margin apenas para image2
+          },
+          transform: {
+            xs: 'none', // Mobile: sem transform
+            md:
+              gridArea === 'image1'
+                ? 'translateX(10px)'
+                : gridArea === 'image2'
+                ? 'translateX(-10px)'
+                : 'none',
+          },
           '&:hover': {
             cursor: 'pointer',
-            transform:
-              gridArea === 'image1'
-                ? 'translateX(10px) translateY(-4px) scale(1.02)'
-                : gridArea === 'image2'
-                ? 'translateX(-10px) translateY(-4px) scale(1.02)'
-                : 'translateY(-4px) scale(1.02)',
+            transform: {
+              xs: 'translateY(-4px) scale(1.02)', // Mobile: só scale e translateY
+              md:
+                gridArea === 'image1'
+                  ? 'translateX(10px) translateY(-4px) scale(1.02)'
+                  : gridArea === 'image2'
+                  ? 'translateX(-10px) translateY(-4px) scale(1.02)'
+                  : 'translateY(-4px) scale(1.02)',
+            },
             boxShadow: '0 16px 40px rgba(0,0,0,0.2)',
             zIndex: 10,
           },

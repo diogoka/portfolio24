@@ -26,10 +26,22 @@ function IssueCard({
         justifyContent: isDesktop ? 'center' : 'flex-start',
         alignItems: 'center',
         position: 'relative',
-        transform:
-          position === 'card1'
-            ? 'translateX(100px) translateY(-100px)'
-            : 'translateX(-100px) translateY(-180px)',
+        // Transform apenas em desktop
+        transform: {
+          xs: 'none', // Mobile: sem transform
+          md:
+            position === 'card1'
+              ? 'translateX(60px) translateY(-80px)' // 1280x800: valores menores
+              : 'translateX(-60px) translateY(-140px)',
+          lg:
+            position === 'card1'
+              ? 'translateX(20px) translateY(-90px)' // 1440p: valores médios
+              : 'translateX(-20px) translateY(-160px)',
+          xl:
+            position === 'card1'
+              ? 'translateX(100px) translateY(-100px)' // 1920p+: valores maiores
+              : 'translateX(-100px) translateY(-180px)',
+        },
       }}
     >
       {/* Badge de Issue */}
