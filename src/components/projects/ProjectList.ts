@@ -76,6 +76,9 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
             subtitle: 'Visual Design',
             content:
               'The original visual design suffered from inconsistent visual hierarchy, poor use of color, and typography choices that compromised readability and overall user comfort.',
+            screenshotType: 'mobileAsymmetric',
+            image1Src: '/images/trees-redesign/issue1.png',
+            image2Src: '/images/trees-redesign/issue2.png',
           },
           {
             subtitle: 'Navigation',

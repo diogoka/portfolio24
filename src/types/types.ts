@@ -32,6 +32,8 @@ export type Section = {
 type Subsection = {
   subtitle: string;
   content?: string;
+  screenshotType?: 'mobileAsymmetric' | 'mobileSymmetric' | 'desktop';
+  image1Src?: string;
   methods?: Method[];
 };
 

@@ -1,7 +1,15 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import GridLayout from './GridLayout';
+import MobileScreenshotGrid from './MobileScreenShotGrid';
+import IssueCard from './IssueCard';
 import MobileScreenshot from './MobileScreenshot';
 
-function BeginningSection({ section }) {
+import { Section } from '../../types/types';
+type Props = {
+  section: Section;
+};
+
+function BeginningSection({ section }: Props) {
   return (
     <>
       {section.subsections &&
@@ -31,26 +39,60 @@ function BeginningSection({ section }) {
               {sub.content}
             </Typography>
 
-            {/* Grid otimizado para screenshots mobile */}
-            <Grid container spacing={6} justifyContent='center'>
-              <Grid item xs={12} sm={8} md={5}>
+            {/* Layout condicional baseado no tipo de screenshot */}
+            {sub.screenshotType === 'mobileAsymmetric' ? (
+              // Layout mobile assimétrico com duas imagens
+              <GridLayout layout='mobileAsymmetric'>
+                <IssueCard
+                  issueNumber='1'
+                  title='Navigation Issues'
+                  description='Confusing navigation patterns making it hard for users to find content.'
+                  position='card1'
+                  variant='mobile'
+                />
+
+                <MobileScreenshotGrid
+                  imageSrc={sub.image1Src}
+                  alt='Mobile interface issue 1'
+                  placeholder='Mobile Screenshot 1'
+                  gridArea='image1'
+                  issueNumber='1'
+                />
+
+                <MobileScreenshotGrid
+                  imageSrc={sub.image2Src}
+                  alt='Mobile interface issue 2'
+                  placeholder='Mobile Screenshot 2'
+                  gridArea='image2'
+                  issueNumber='2'
+                />
+
+                <IssueCard
+                  issueNumber='2'
+                  title='Touch Target Size'
+                  description='Buttons and interactive elements too small for comfortable mobile interaction.'
+                  position='card2'
+                  variant='mobile'
+                />
+              </GridLayout>
+            ) : (
+              // Layout mobile lado a lado (padrão)
+              <GridLayout layout='mobileSideBySide'>
                 <MobileScreenshot
                   issueNumber='1'
                   title='Inconsistent Typography'
                   description='Different font sizes and weights across similar elements causing visual hierarchy confusion.'
                   placeholder='Typography Issues'
                 />
-              </Grid>
 
-              <Grid item xs={12} sm={8} md={5}>
                 <MobileScreenshot
                   issueNumber='2'
                   title='Poor Color Contrast'
                   description='Low contrast ratios making text difficult to read, especially for users with visual impairments.'
                   placeholder='Color Contrast Issues'
                 />
-              </Grid>
-            </Grid>
+              </GridLayout>
+            )}
           </Box>
         ))}
     </>
