@@ -7,3 +7,40 @@ export type ProjectType = {
   gitHub: string;
   olderSite?: string;
 };
+
+export type UiUxProjectType = {
+  title: string;
+  subtitle: string;
+  description: string;
+  heroImage: string;
+  projectInfo: {
+    role: string;
+    team: string[];
+    time: string;
+    research: string[];
+  };
+  sections: Section[];
+};
+
+export type Section = {
+  title: string;
+  intro: string;
+  subsections?: Subsection[];
+  improvements?: Improvement[];
+};
+
+type Subsection = {
+  subtitle: string;
+  content?: string;
+  methods?: Method[];
+};
+
+type Method = {
+  name: string;
+  description: string;
+};
+
+type Improvement = {
+  title: string;
+  description: string;
+};
