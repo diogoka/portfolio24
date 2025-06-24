@@ -45,8 +45,8 @@ function BeginningSection({ section }: Props) {
               <GridLayout layout='mobileAsymmetric'>
                 <IssueCard
                   issueNumber='1'
-                  title='Navigation Issues'
-                  description='Confusing navigation patterns making it hard for users to find content.'
+                  title='Not mobile-friendly Layout'
+                  description='The menu and content are not optimized for mobile devices, leading to poor usability.'
                   position='card1'
                   variant='mobile'
                 />
@@ -69,8 +69,8 @@ function BeginningSection({ section }: Props) {
 
                 <IssueCard
                   issueNumber='2'
-                  title='Touch Target Size'
-                  description='Buttons and interactive elements too small for comfortable mobile interaction.'
+                  title='Accessibility Issues'
+                  description='Text has a high accessibility issue, making it impossible to read.'
                   position='card2'
                   variant='mobile'
                 />
