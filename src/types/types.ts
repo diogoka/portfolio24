@@ -54,6 +54,12 @@ type Method = {
   summary?: string;
   imageSrc2?: string;
   summary2?: string;
+  detail1?: string;
+  detailTitle1?: string;
+  imgDetail1Src?: string;
+  detailTitle2?: string;
+  detail2?: string;
+  imgDetail2Src?: string;
 };
 
 type Improvement = {

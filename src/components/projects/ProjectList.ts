@@ -27,6 +27,8 @@ import contentBefore from '../../public/images/content-before.jpg';
 import contentAfter from '../../public/images/content-after.jpg';
 import menuBefore from '../../public/images/menu-before.jpg';
 import menuAfter from '../../public/images/menu-after.jpg';
+import detailImage1Src from '../../public/images/detail1-home-heuristic.jpg';
+import detailImage2Src from '../../public/images/detail2-whosale-heuristic.jpg';
 
 export const EventllegeProject: ProjectType = {
   name: 'Cornerstone Connect',
@@ -161,6 +163,14 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
                 imageSrc: heuristic,
                 summary:
                   'The heuristic evaluation revealed numerous high-severity usability issues, particularly in the areas of aesthetic and minimalist design and consistency and standards. Major problems included poor text contrast (e.g., white on green or image backgrounds), inconsistent button styles, misaligned titles, and irregular spacing throughout the interface. These issues compromise readability, visual hierarchy, and user confidence. Additionally, elements like inactive buttons and inconsistent layout behaviors further hindered usability. Addressing these problems was critical to improving both the visual clarity and user experience of the interface.',
+                detailTitle1: 'Aesthetic and Minimalist Design',
+                detail1:
+                  'We found several contrast issues on the website, such as white text on a green background, and a highlighted header element that is too dark.',
+                imgDetail1Src: detailImage1Src,
+                detailTitle2: 'Aesthetic and Minimalist Design',
+                detail2:
+                  'In the header, the underline is too far from the active menu item, which affects visual clarity and may confuse users.',
+                imgDetail2Src: detailImage2Src,
               },
               {
                 name: 'Persona Development',
