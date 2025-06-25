@@ -14,6 +14,7 @@ import Links from '../components/header/Links';
 import { Link as ScrollLink } from 'react-scroll';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import MenuIcon from '@mui/icons-material/Menu';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -23,11 +24,23 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 
 function Header() {
   const isMobile = useMediaQuery('(max-width:700px)');
-
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100); // pequeno delay para garantir que o scroll funcione após navegação
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const ContainerStyle = {
@@ -36,7 +49,6 @@ function Header() {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // height: '5rem',
     backgroundColor: '#fff',
     boxShadow: '1px 0.5px 10px rgba(0, 0, 0, 0.25)',
     minWidth: '100%',
@@ -125,13 +137,7 @@ function Header() {
   return (
     <Container sx={ContainerStyle}>
       <Box
-        component={ScrollLink}
-        to='home'
-        spy={true}
-        smooth={true}
-        duration={500}
-        offset={-70}
-        className='menu-hover'
+        onClick={handleLogoClick}
         sx={{
           textDecoration: 'none',
           color: '#2d2e32',
@@ -139,7 +145,7 @@ function Header() {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          // paddingLeft: isMobile ? '1rem' : '4.5rem',
+          cursor: 'pointer',
         }}
       >
         <Typography
