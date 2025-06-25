@@ -29,6 +29,7 @@ import menuBefore from '../../public/images/menu-before.jpg';
 import menuAfter from '../../public/images/menu-after.jpg';
 import detailImage1Src from '../../public/images/detail1-home-heuristic.jpg';
 import detailImage2Src from '../../public/images/detail2-whosale-heuristic.jpg';
+import coverCard from '../../public/images/cover-card.jpg';
 
 export const EventllegeProject: ProjectType = {
   name: 'Cornerstone Connect',
@@ -76,6 +77,7 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
   'trees-redesign': {
     title: 'Trees Redesign',
     subtitle: 'Complete Redesign of the \nUser Experience',
+    cover: `${coverCard}`,
     description:
       'A comprehensive case study on the redesign of the Trees Organic Coffee website, focused on improving usability and enhancing the user experience through in-depth heuristic analysis and research-driven design.',
     heroImage: `${TreesHeroImg}`,

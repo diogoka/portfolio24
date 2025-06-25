@@ -12,6 +12,7 @@ export type UiUxProjectType = {
   title: string;
   subtitle: string;
   description: string;
+  cover?: string;
   heroImage: string;
   projectInfo: {
     role: string;
