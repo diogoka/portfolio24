@@ -75,7 +75,7 @@ export const FridgeFyProject: ProjectType = {
 export const TreesRedesignProject: Record<string, UiUxProjectType> = {
   'trees-redesign': {
     title: 'Trees Redesign',
-    subtitle: 'Complete Redesign of the User Experience',
+    subtitle: 'Complete Redesign of the \nUser Experience',
     description:
       'A comprehensive case study on the redesign of the Trees Organic Coffee website, focused on improving usability and enhancing the user experience through in-depth heuristic analysis and research-driven design.',
     heroImage: `${TreesHeroImg}`,

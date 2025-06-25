@@ -31,7 +31,7 @@ function ProjectHero({ project }: Props) {
           component='h1'
           sx={{
             fontWeight: 700,
-            fontSize: { xs: '3rem', md: '4.5rem' },
+            fontSize: { xs: '2rem', md: '4.5rem', lg: '4.5rem' },
             textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
           }}
         >
@@ -42,7 +42,9 @@ function ProjectHero({ project }: Props) {
           sx={{
             mt: 2,
             fontWeight: 400,
+            fontSize: { xs: '1.2rem', md: '1rem', lg: '1.5rem' },
             textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+            // whiteSpace: 'pre-line',
           }}
         >
           {project.subtitle}

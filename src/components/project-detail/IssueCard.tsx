@@ -56,7 +56,7 @@ function IssueCard({
           borderRadius: '16px',
           fontSize: '0.8rem',
           fontWeight: 500,
-          mb: 2,
+          mb: { xs: 1, md: 2 },
           boxShadow: '0 2px 8px rgba(211, 47, 47, 0.3)',
         }}
       >

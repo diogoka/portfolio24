@@ -7,85 +7,98 @@ type Props = {
     | 'default'
     | 'mobileSideBySide'
     | 'mobileAsymmetric'
-    | 'mobileAsymmetricInverted'
-    | 'desktopWithSideCards';
+    | 'mobileAsymmetricInverted';
 };
 
+// Layouts que usam <Grid container>
+const flexLayouts = {
+  mobileSideBySide: {
+    container: { spacing: 6, justifyContent: 'center' },
+    items: [
+      { xs: 12, sm: 8, md: 5 },
+      { xs: 12, sm: 8, md: 5 },
+    ],
+  },
+} as const;
+
+type FlexLayoutKey = keyof typeof flexLayouts;
+
+// Layouts que usam CSS Grid (gridTemplateAreas)
+const gridLayouts = {
+  mobileAsymmetric: {
+    container: { spacing: 0, alignItems: 'stretch' },
+    gridTemplateAreas: {
+      xs: `
+        "image1"
+        "card1"  
+        "spacer"
+        "image2"
+        "card2"
+      `,
+      md: `
+        ". image1 . ."
+        "card1 image1 image2 ."
+        ". image1 image2 ."
+        ". . image2 card2"
+      `,
+    },
+  },
+  mobileAsymmetricInverted: {
+    container: { spacing: 0, alignItems: 'stretch' },
+    gridTemplateAreas: {
+      xs: `
+        "card2"
+        "image2"  
+        "spacer"
+        "card1"
+        "image1"
+      `,
+      md: `
+        ". . image2 card2"
+        ". image1 image2 ."
+        ". image1 image2 ."
+        "card1 image1 . ."
+      `,
+    },
+  },
+} as const;
+
+type GridLayoutKey = keyof typeof gridLayouts;
+
 function GridLayout({ children, layout = 'default' }: Props) {
-  const layouts = {
-    // Layout para mobile screenshots lado a lado
-    mobileSideBySide: {
-      container: { spacing: 6, justifyContent: 'center' },
-      items: [
-        { xs: 12, sm: 8, md: 5 },
-        { xs: 12, sm: 8, md: 5 },
-      ],
-    },
+  if (layout in gridLayouts) {
+    const gridLayout = gridLayouts[layout as GridLayoutKey];
 
-    // Layout mobile com posicionamento assimétrico
-    mobileAsymmetric: {
-      container: { spacing: 0, alignItems: 'stretch' },
-      gridTemplateAreas: {
-        xs: `
-          "image1"
-          "card1"  
-          "image2"
-          "card2"
-        `,
-        md: `
-          ". image1 . ."
-          "card1 image1 image2 ."
-          ". image1 image2 ."
-          ". . image2 card2"
-        `,
-      },
-    },
-
-    // Layout mobile invertido (espelhado verticalmente)
-    mobileAsymmetricInverted: {
-      container: { spacing: 0, alignItems: 'stretch' },
-      gridTemplateAreas: {
-        xs: `
-          "card2"
-          "image2"  
-          "card1"
-          "image1"
-        `,
-        md: `
-          ". . image2 card2"
-          ". image1 image2 ."
-          ". image1 image2 ."
-          "card1 image1 . ."
-        `,
-      },
-    },
-  };
-
-  const isGridLayout =
-    layout === 'desktopWithSideCards' ||
-    layout === 'mobileAsymmetric' ||
-    layout === 'mobileAsymmetricInverted';
-
-  if (isGridLayout) {
     return (
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr 1fr' },
-          gridTemplateRows: '0.8fr 1fr 1fr 0.5fr',
-          gridTemplateAreas: layouts[layout].gridTemplateAreas,
-          gap: 0,
+          gridTemplateRows: {
+            xs: 'auto auto 4rem auto auto',
+            md: '0.8fr 1fr 1fr 0.5fr',
+          },
+          gridTemplateAreas: gridLayout.gridTemplateAreas,
+          gap: { xs: 1, md: 0 },
           minHeight: '600px',
           width: '100%',
         }}
       >
         {children}
+        <Box
+          sx={{
+            gridArea: 'spacer',
+            display: { xs: 'block', md: 'none' },
+          }}
+        />
       </Box>
     );
   }
 
-  // Layout padrão com Grid do MUI
-  const currentLayout = layouts[layout] || layouts.mobileSideBySide;
+  const currentLayout = flexLayouts[layout as FlexLayoutKey] || {
+    container: { spacing: 6 },
+    items: [],
+  };
 
   return (
     <Grid container {...currentLayout.container}>

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import GridLayout from './GridLayout';
 import MobileScreenshotGrid from './MobileScreenShotGrid';
 import IssueCard from './IssueCard';
@@ -9,7 +9,10 @@ type Props = {
 };
 
 function BeginningSection({ section }: Props) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   let issueCounter = 1;
+
   return (
     <>
       {section.subsections &&
@@ -42,13 +45,15 @@ function BeginningSection({ section }: Props) {
             {/* Layout condicional baseado no tipo de screenshot */}
             {sub.screenshotType === 'mobileAsymmetric' ? (
               // Layout mobile assimétrico com duas imagens
-              <GridLayout layout='mobileAsymmetric'>
+              <GridLayout
+                layout={isMobile ? 'mobileAsymmetric' : 'mobileAsymmetric'}
+              >
                 <IssueCard
                   issueNumber={`${issueCounter++}`}
                   title={sub.issue1Title!}
                   description={sub.issue1Description!}
                   position='card1'
-                  variant='mobile'
+                  variant={isMobile ? 'mobile' : 'mobile'}
                 />
 
                 <MobileScreenshotGrid
@@ -73,18 +78,22 @@ function BeginningSection({ section }: Props) {
                   title={sub.issue2Title!}
                   description={sub.issue2Description!}
                   position='card2'
-                  variant='mobile'
+                  variant={isMobile ? 'mobile' : 'mobile'}
                 />
               </GridLayout>
             ) : (
-              // Layout mobile lado a lado (padrão)
-              <GridLayout layout='mobileAsymmetricInverted'>
+              // Layout mobile invertido (mas simétrico no mobile)
+              <GridLayout
+                layout={
+                  isMobile ? 'mobileAsymmetric' : 'mobileAsymmetricInverted'
+                }
+              >
                 <IssueCard
                   issueNumber={`${issueCounter++}`}
                   title={sub.issue1Title!}
                   description={sub.issue1Description!}
                   position='card1'
-                  variant='mobileInverted'
+                  variant={isMobile ? 'mobile' : 'mobileInverted'}
                 />
 
                 <MobileScreenshotGrid
@@ -93,7 +102,7 @@ function BeginningSection({ section }: Props) {
                   placeholder='Mobile Screenshot 1'
                   gridArea='image1'
                   issueNumber='1'
-                  type='mobileInverted'
+                  type={isMobile ? undefined : 'mobileInverted'}
                 />
 
                 <MobileScreenshotGrid
@@ -102,7 +111,7 @@ function BeginningSection({ section }: Props) {
                   placeholder='Mobile Screenshot 2'
                   gridArea='image2'
                   issueNumber='2'
-                  type='mobileInverted'
+                  type={isMobile ? undefined : 'mobileInverted'}
                 />
 
                 <IssueCard
@@ -110,7 +119,7 @@ function BeginningSection({ section }: Props) {
                   title={sub.issue2Title!}
                   description={sub.issue2Description!}
                   position='card2'
-                  variant='mobileInverted'
+                  variant={isMobile ? 'mobile' : 'mobileInverted'}
                 />
               </GridLayout>
             )}
