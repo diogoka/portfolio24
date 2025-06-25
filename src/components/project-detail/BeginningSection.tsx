@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import GridLayout from './GridLayout';
 import MobileScreenshotGrid from './MobileScreenShotGrid';
 import IssueCard from './IssueCard';
-import MobileScreenshot from './MobileScreenshot';
 
 import { Section } from '../../types/types';
 type Props = {
@@ -10,6 +9,7 @@ type Props = {
 };
 
 function BeginningSection({ section }: Props) {
+  let issueCounter = 1;
   return (
     <>
       {section.subsections &&
@@ -44,9 +44,9 @@ function BeginningSection({ section }: Props) {
               // Layout mobile assimétrico com duas imagens
               <GridLayout layout='mobileAsymmetric'>
                 <IssueCard
-                  issueNumber='1'
-                  title='Not mobile-friendly Layout'
-                  description='The menu and content are not optimized for mobile devices, leading to poor usability.'
+                  issueNumber={`${issueCounter++}`}
+                  title={sub.issue1Title!}
+                  description={sub.issue1Description!}
                   position='card1'
                   variant='mobile'
                 />
@@ -57,6 +57,43 @@ function BeginningSection({ section }: Props) {
                   placeholder='Mobile Screenshot 1'
                   gridArea='image1'
                   issueNumber='1'
+                  imgOnTop={true}
+                />
+
+                <MobileScreenshotGrid
+                  imageSrc={sub.image2Src}
+                  alt='Mobile interface issue 2'
+                  placeholder='Mobile Screenshot 2'
+                  gridArea='image2'
+                  issueNumber={`${subIndex + 2}`}
+                />
+
+                <IssueCard
+                  issueNumber={`${issueCounter++}`}
+                  title={sub.issue2Title!}
+                  description={sub.issue2Description!}
+                  position='card2'
+                  variant='mobile'
+                />
+              </GridLayout>
+            ) : (
+              // Layout mobile lado a lado (padrão)
+              <GridLayout layout='mobileAsymmetricInverted'>
+                <IssueCard
+                  issueNumber={`${issueCounter++}`}
+                  title={sub.issue1Title!}
+                  description={sub.issue1Description!}
+                  position='card1'
+                  variant='mobileInverted'
+                />
+
+                <MobileScreenshotGrid
+                  imageSrc={sub.image1Src}
+                  alt='Mobile interface issue 1'
+                  placeholder='Mobile Screenshot 1'
+                  gridArea='image1'
+                  issueNumber='1'
+                  type='mobileInverted'
                 />
 
                 <MobileScreenshotGrid
@@ -65,31 +102,15 @@ function BeginningSection({ section }: Props) {
                   placeholder='Mobile Screenshot 2'
                   gridArea='image2'
                   issueNumber='2'
+                  type='mobileInverted'
                 />
 
                 <IssueCard
-                  issueNumber='2'
-                  title='Accessibility Issues'
-                  description='Text has a high accessibility issue, making it impossible to read.'
+                  issueNumber={`${issueCounter++}`}
+                  title={sub.issue2Title!}
+                  description={sub.issue2Description!}
                   position='card2'
-                  variant='mobile'
-                />
-              </GridLayout>
-            ) : (
-              // Layout mobile lado a lado (padrão)
-              <GridLayout layout='mobileSideBySide'>
-                <MobileScreenshot
-                  issueNumber='1'
-                  title='Inconsistent Typography'
-                  description='Different font sizes and weights across similar elements causing visual hierarchy confusion.'
-                  placeholder='Typography Issues'
-                />
-
-                <MobileScreenshot
-                  issueNumber='2'
-                  title='Poor Color Contrast'
-                  description='Low contrast ratios making text difficult to read, especially for users with visual impairments.'
-                  placeholder='Color Contrast Issues'
+                  variant='mobileInverted'
                 />
               </GridLayout>
             )}

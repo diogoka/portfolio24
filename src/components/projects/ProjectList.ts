@@ -4,6 +4,29 @@ import FridgefyImg from '../../public/images/Fridgefy.png';
 import CornerstoneConnectImg from '../../public/images/cornerstone-connect.png';
 import CashOut from '../../public/images/cash-out.png';
 import TreesHeroImg from '../../public/images/hero-trees2x.png';
+import issueDesign1 from '../../public/images/issueDesign1-4x.png';
+import issueDesign2 from '../../public/images/issueDesign2-4x.png';
+import issueNavigation2 from '../../public/images//issueNavigation2.png';
+import issueNavigation1 from '../../public/images//issueNavigation1.png';
+import issueContent1 from '../../public/images/issueContent1.jpeg';
+import issueContent2 from '../../public/images/issueContent2.jpeg';
+import heuristic from '../../public/images/heurisctic-evaluation2x.jpg';
+import personas from '../../public/images/personas.png';
+import cardSorting from '../../public/images/card-sorting.jpg';
+import cognitive2 from '../../public/images/cognitive-walkthrough1.png';
+import competitors from '../../public/images/competitors.png';
+import wireframe from '../../public/images/wireframe.jpg';
+import mockups from '../../public/images/mockups.jpg';
+import easierAfter from '../../public/images/easier-after.jpg';
+import easierBefore from '../../public/images/easier-before.jpg';
+import navigationBefore from '../../public/images/navigation-before.jpg';
+import navigationAfter from '../../public/images/navigation-after.jpg';
+import brandBefore from '../../public/images/brand-before.jpg';
+import brandAfter from '../../public/images/brand-after.jpg';
+import contentBefore from '../../public/images/content-before.jpg';
+import contentAfter from '../../public/images/content-after.jpg';
+import menuBefore from '../../public/images/menu-before.jpg';
+import menuAfter from '../../public/images/menu-after.jpg';
 
 export const EventllegeProject: ProjectType = {
   name: 'Cornerstone Connect',
@@ -77,13 +100,49 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
             content:
               'The original visual design suffered from inconsistent visual hierarchy, poor use of color, and typography choices that compromised readability and overall user comfort.',
             screenshotType: 'mobileAsymmetric',
-            image1Src: '/images/trees-redesign/issue1.png',
-            image2Src: '/images/trees-redesign/issue2.png',
+            issue1Title: 'Not mobile-friendly Layout',
+
+            issue1Description:
+              'The menu and content were not optimized for mobile devices, leading to poor usability.',
+            issue2Title: 'Accessibility Issues',
+            issue2Description:
+              'Text has a high accessibility issue, making it impossible to read.',
+            image1Src: issueDesign1,
+            image2Src: issueDesign2,
           },
           {
             subtitle: 'Navigation',
+            screenshotType: 'mobileAsymmetricInverted',
             content:
-              'Navigation within the app lacked structure and failed to follow established design patterns, leading to user confusion, high drop-off rates, and frustration in completing basic tasks.',
+              'The original navigation lacked clear hierarchy and failed to follow standard mobile patterns, making it hard for users to find what they need.',
+
+            issue1Title: 'Content Not Prioritized',
+            issue1Description:
+              'The homepage highlights less important content, while essential actions are hidden or unclear.',
+
+            issue2Title: 'Hard-to-Find Information',
+            issue2Description:
+              'Key elements like the menu and store details are not easy to locate or access.',
+
+            image1Src: issueNavigation1, // homepage screenshot
+            image2Src: issueNavigation2, // mobile menu screenshot
+          },
+          {
+            subtitle: 'Content Balance',
+            screenshotType: 'mobileAsymmetric',
+            content:
+              'Content balance within the app was uneven, with some sections overloaded with information while others were sparse, leading to a disjointed user experience.',
+
+            issue1Title: 'Content Overload',
+            issue1Description:
+              'Certain sections were overloaded with information, making it difficult for users to find what they needed.',
+
+            issue2Title: 'Homepage Feels Promotional',
+            issue2Description:
+              'The homepage focuses too much on business-related content, reducing clarity and value for the end user.',
+
+            image1Src: issueContent2,
+            image2Src: issueContent1,
           },
         ],
       },
@@ -99,9 +158,15 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
                 name: 'Heuristic Evaluation',
                 description:
                   'A systematic review of the interface using Nielsen’s usability principles to uncover critical usability flaws.',
+                imageSrc: heuristic,
+                summary:
+                  'The heuristic evaluation revealed numerous high-severity usability issues, particularly in the areas of aesthetic and minimalist design and consistency and standards. Major problems included poor text contrast (e.g., white on green or image backgrounds), inconsistent button styles, misaligned titles, and irregular spacing throughout the interface. These issues compromise readability, visual hierarchy, and user confidence. Additionally, elements like inactive buttons and inconsistent layout behaviors further hindered usability. Addressing these problems was critical to improving both the visual clarity and user experience of the interface.',
               },
               {
                 name: 'Persona Development',
+                imageSrc: personas,
+                summary:
+                  'Our persona development process revealed three key user archetypes: \nMaya, a remote worker seeking quiet cafés with work-friendly amenities; \nLeo, a selective coffee enthusiast focused on ethically sourced, organic beans; and \nYuki, an international student looking for cozy, social spots with sweet treats. \nThese personas highlighted diverse user needs—from clear Wi-Fi and seating info to visually accessible menus and detailed product sourcing—which guided both content prioritization and interface decisions throughout the redesign.',
                 description:
                   'Creation of data-driven personas that reflect real user goals, needs, and frustrations, providing clear guidance for design decisions.',
               },
@@ -109,14 +174,26 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
                 name: 'Card Sorting',
                 description:
                   'User-driven card sorting sessions to better understand how users categorize and navigate information.',
+                imageSrc: cardSorting,
+                summary:
+                  'Through card sorting sessions, we identified major usability issues in the site\'s information architecture. Users struggled to locate key sections such as "Our Products," which lacked clarity, and many expected it under a more intuitive category. Additionally, important items like "Catering Order" were buried under unrelated sections like "Online Order," and some menus were hidden inside the "About" page. Based on these findings, we reorganized the site navigation to better reflect user expectations and improve content discoverability.',
               },
               {
-                name: 'Cognitive Walkthrough',
+                name: 'Cognitive Walkthrough (2)',
                 description:
                   'Task-based analysis simulating user behavior to uncover friction points and improve task flows.',
+                imageSrc: cognitive2,
+                summary:
+                  'Task 1 – Checking the Drink Menu\n' +
+                  'The term "Our Products" caused confusion among users. It lacked clarity and didn’t lead to the expected menu content, failing to meet user expectations for discovering drink options.\n\n' +
+                  'Task 2 – Ordering Online (In-Person Pickup):\n' +
+                  'Users faced issues due to poor proximity between elements. Key controls were not clearly grouped or placed logically, increasing cognitive load and making the task harder to complete.',
               },
               {
                 name: 'Competitor Analysis',
+                imageSrc: competitors,
+                summary:
+                  'Our competitor analysis highlighted strong patterns in mobile usability, clear brand identity, and intuitive navigation. All competitors offered fully responsive designs with clean visual styles and consistent branding. Their websites prioritized mobile access, providing streamlined user flows and well-structured categories. Across the board, the tone was friendly and accessible, with attention to accessibility standards such as color contrast. While minor UX flaws were noted, the overall experience across these competitors was cohesive, functional, and visually engaging.',
                 description:
                   'Benchmarking against similar applications to identify best practices and areas for differentiation.',
               },
@@ -124,11 +201,13 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
           },
           {
             subtitle: 'Wireframing',
+            image1Src: wireframe,
             content:
               'Based on the research insights, we designed low-fidelity wireframes to test structural improvements and validate navigation flows.',
           },
           {
             subtitle: 'High-Fidelity Mockups',
+            image1Src: mockups,
             content:
               'Once the wireframes were validated, we created high-fidelity mockups aligned with a newly established design system to ensure visual consistency and scalability.',
           },
@@ -140,19 +219,39 @@ export const TreesRedesignProject: Record<string, UiUxProjectType> = {
           'The redesign led to substantial improvements in usability and overall user satisfaction. The final solution directly addressed all key issues identified during the research phase.',
         improvements: [
           {
-            title: 'Improved Visual Hierarchy',
+            title: 'Easier Café Discovery',
             description:
-              'A revised typographic system and consistent use of color helped establish a clear and intuitive visual hierarchy.',
+              'We redesigned the “Locations” page to make it easier for users to find nearby branches quickly and intuitively.',
+            afterImgSrc: easierAfter,
+            beforeImgSrc: easierBefore,
           },
           {
-            title: 'Streamlined Navigation',
+            title: 'Simplified Navigation',
             description:
-              'Complete restructuring of the menu and navigation flows based on user insights from card sorting exercises.',
+              'The navigation menu was restructured with improved contrast, simplified labels, and better accessibility to help users find what they need faster.',
+            afterImgSrc: navigationAfter,
+            beforeImgSrc: navigationBefore,
           },
           {
-            title: 'Consistent User Interface',
+            title: 'Stronger Brand Expression',
             description:
-              'Introduction of a robust design system that ensures consistency across all screens and components.',
+              'While preserving brand colors, the new homepage is cleaner and highlights the brand’s three main pillars more effectively.',
+            afterImgSrc: brandAfter,
+            beforeImgSrc: brandBefore,
+          },
+          {
+            title: 'Content Balance',
+            description:
+              'Content is now more evenly distributed, reducing clutter in some areas and adding valuable information where it was missing.',
+            afterImgSrc: contentAfter,
+            beforeImgSrc: contentBefore,
+          },
+          {
+            title: 'Streamlined Menu Navigation',
+            description:
+              'The confusing “Our Products” section was replaced with a proper “Menu” that clearly displays available items, improving discoverability.',
+            afterImgSrc: menuAfter,
+            beforeImgSrc: menuBefore,
           },
         ],
       },

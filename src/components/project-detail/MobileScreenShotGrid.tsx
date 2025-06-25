@@ -6,6 +6,8 @@ type Props = {
   placeholder?: string;
   gridArea: string;
   issueNumber: string;
+  type?: 'mobileInverted' | 'mobile' | 'desktop';
+  imgOnTop?: boolean;
 };
 
 function MobileScreenshotGrid({
@@ -13,7 +15,6 @@ function MobileScreenshotGrid({
   alt,
   placeholder = 'Mobile Screenshot',
   gridArea,
-  issueNumber,
 }: Props) {
   return (
     <Box
@@ -34,9 +35,9 @@ function MobileScreenshotGrid({
           backgroundColor: '#f8f8f8',
           borderRadius: '20px',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '8px solid #2d2e32',
+          // alignItems: 'center',
+          // justifyContent: 'center',
+          border: '6px solid #2d2e32',
           transition: 'all 0.3s ease-in-out',
           position: 'relative',
           // Posicionamento responsivo
@@ -71,17 +72,6 @@ function MobileScreenshotGrid({
             boxShadow: '0 16px 40px rgba(0,0,0,0.2)',
             zIndex: 10,
           },
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '15px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '50px',
-            height: '5px',
-            backgroundColor: '#666',
-            borderRadius: '3px',
-          },
         }}
       >
         {imageSrc ? (
@@ -92,6 +82,9 @@ function MobileScreenshotGrid({
               width: '100%',
               height: '100%',
               objectFit: 'cover',
+              // objectPosition: imgOnTop ? 'top' : 'center',
+              objectPosition: 'top',
+
               borderRadius: '12px',
             }}
           />

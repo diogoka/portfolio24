@@ -7,6 +7,7 @@ type Props = {
     | 'default'
     | 'mobileSideBySide'
     | 'mobileAsymmetric'
+    | 'mobileAsymmetricInverted'
     | 'desktopWithSideCards';
 };
 
@@ -30,7 +31,7 @@ function GridLayout({ children, layout = 'default' }: Props) {
           "card1"  
           "image2"
           "card2"
-          `,
+        `,
         md: `
           ". image1 . ."
           "card1 image1 image2 ."
@@ -39,9 +40,33 @@ function GridLayout({ children, layout = 'default' }: Props) {
         `,
       },
     },
+
+    // Layout mobile invertido (espelhado verticalmente)
+    mobileAsymmetricInverted: {
+      container: { spacing: 0, alignItems: 'stretch' },
+      gridTemplateAreas: {
+        xs: `
+          "card2"
+          "image2"  
+          "card1"
+          "image1"
+        `,
+        md: `
+          ". . image2 card2"
+          ". image1 image2 ."
+          ". image1 image2 ."
+          "card1 image1 . ."
+        `,
+      },
+    },
   };
 
-  if (layout === 'desktopWithSideCards' || layout === 'mobileAsymmetric') {
+  const isGridLayout =
+    layout === 'desktopWithSideCards' ||
+    layout === 'mobileAsymmetric' ||
+    layout === 'mobileAsymmetricInverted';
+
+  if (isGridLayout) {
     return (
       <Box
         sx={{

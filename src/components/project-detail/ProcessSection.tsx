@@ -57,28 +57,61 @@ function ProcessSection({ section }: Props) {
                     {method.description}
                   </Typography>
 
-                  <Box
-                    sx={{
-                      width: '100%',
-                      height: '250px',
-                      backgroundColor: '#f8f8f8',
-                      borderRadius: '10px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: '1px solid #e0e0e0',
-                      transition: 'all 0.3s ease-in-out',
-                      '&:hover': {
-                        cursor: 'pointer',
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                      },
-                    }}
-                  >
-                    <Typography variant='body2' color='text.secondary'>
-                      [Imagem - {method.name}]
+                  {method.imageSrc && (
+                    <Box
+                      sx={{
+                        width: '100%',
+                        height: '250px',
+                        backgroundColor: '#f8f8f8',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '1px solid #e0e0e0',
+                        overflow: 'hidden',
+                        transition: 'all 0.3s ease-in-out',
+                        '&:hover': {
+                          cursor: 'pointer',
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                        },
+                        mb: 2,
+                      }}
+                    >
+                      <img
+                        src={method.imageSrc}
+                        alt={method.name}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'top',
+                          transform:
+                            method.name === 'Cognitive Walkthrough'
+                              ? 'scale(1.08)'
+                              : method.name === 'Heuristic Evaluation' ||
+                                method.name === 'Card Sorting'
+                              ? 'scale(1.03)'
+                              : 'none ',
+                        }}
+                      />
+                    </Box>
+                  )}
+
+                  {/* Optional Summary */}
+                  {method.summary && (
+                    <Typography
+                      variant='body2'
+                      sx={{
+                        color: '#444',
+                        fontStyle: 'italic',
+                        lineHeight: 1.6,
+                        whiteSpace: 'pre-line',
+                      }}
+                    >
+                      {method.summary}
                     </Typography>
-                  </Box>
+                  )}
                 </Box>
               ))}
 
@@ -115,9 +148,16 @@ function ProcessSection({ section }: Props) {
                     },
                   }}
                 >
-                  <Typography variant='body2' color='text.secondary'>
-                    [Imagem - {sub.subtitle}]
-                  </Typography>
+                  <img
+                    src={sub.image1Src}
+                    alt={sub.subtitle}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'top',
+                    }}
+                  />
                 </Box>
               </>
             )}

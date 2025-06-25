@@ -4,18 +4,19 @@ type Props = {
   issueNumber: string;
   title: string;
   description: string;
-  position?: 'card1' | 'card2'; // card1 ou card2
-  variant?: 'desktop' | 'mobile'; // desktop ou mobile
+  position?: 'card1' | 'card2';
+  variant?: 'desktop' | 'mobile' | 'mobileInverted';
 };
 
 function IssueCard({
   issueNumber,
   title,
   description,
-  position = 'card1', // card1 ou card2
-  variant = 'desktop', // desktop ou mobile
+  position = 'card1',
+  variant = 'desktop',
 }: Props) {
   const isDesktop = variant === 'desktop';
+  const isMobileInverted = variant === 'mobileInverted';
 
   return (
     <Box
@@ -26,21 +27,22 @@ function IssueCard({
         justifyContent: isDesktop ? 'center' : 'flex-start',
         alignItems: 'center',
         position: 'relative',
-        // Transform apenas em desktop
         transform: {
-          xs: 'none', // Mobile: sem transform
+          xs: 'none',
           md:
             position === 'card1'
-              ? 'translateX(60px) translateY(-80px)' // 1280x800: valores menores
+              ? 'translateX(60px) translateY(-80px)'
               : 'translateX(-60px) translateY(-140px)',
           lg:
             position === 'card1'
-              ? 'translateX(20px) translateY(-90px)' // 1440p: valores médios
+              ? 'translateX(20px) translateY(-90px)'
               : 'translateX(-20px) translateY(-160px)',
           xl:
             position === 'card1'
-              ? 'translateX(100px) translateY(-100px)' // 1920p+: valores maiores
-              : 'translateX(-100px) translateY(-180px)',
+              ? 'translateX(100px) translateY(-100px)'
+              : isMobileInverted
+              ? 'translateX(-100px) translateY(60px)'
+              : 'translateX(-100px) translateY(-100px)',
         },
       }}
     >
